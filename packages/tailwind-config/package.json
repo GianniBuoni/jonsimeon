@@ -1,0 +1,9 @@
+{
+  "name": "@jonsimeon/tailwind-config",
+  "version": "1.0.0",
+  "license": "ISC",
+  "devDependencies": {
+    "@jonsimeon/ts-config": "workspace:^",
+    "@types/node": "^22.7.4"
+  }
+}
