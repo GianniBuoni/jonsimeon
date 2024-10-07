@@ -1,0 +1,10 @@
+{
+  "name": "@jonsimeon/ui",
+  "version": "1.0.0",
+  "license": "ISC",
+  "devDependencies": {
+    "@jonsimeon/tailwind-config": "workspace:^",
+    "@jonsimeon/ts-config": "workspace:^",
+    "typescript": "^5.6.2"
+  }
+}
