@@ -19,7 +19,7 @@ const sharedConfig: Omit<Config, "content"> = {
       {
         dracula: {
           ...require("daisyui/src/theming/themes")["dracula"],
-          secondary: "765c9c",
+          primary: "765c9c",
         },
       },
     ],

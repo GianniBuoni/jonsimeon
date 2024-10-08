@@ -2,9 +2,22 @@
   "name": "@jonsimeon/ui",
   "version": "1.0.0",
   "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.css"
+  },
+  "scripts": {
+    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css"
+  },
   "devDependencies": {
     "@jonsimeon/tailwind-config": "workspace:^",
     "@jonsimeon/ts-config": "workspace:^",
     "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   }
 }

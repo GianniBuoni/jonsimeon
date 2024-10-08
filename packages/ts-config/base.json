@@ -4,7 +4,7 @@
     "baseUrl": "../../",
     "paths": {
       "@lib/*": ["packages/lib/*"],
-      "@ui/*": ["packages/ui/*"]
+      "@ui/*": ["packages/ui/src/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

@@ -1,0 +1,23 @@
+---
+import MainHead from "@ui/astro/MainHead.astro";
+import Section from "@ui/react/Section";
+import "@ui/styles.css"
+
+interface Props {
+  title?: string;
+  description: string;
+}
+
+const { title = "Jon Simeon", description } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth p-10">
+  <MainHead {title} {description} />
+  <body>
+    <Section tagType="nav" classes="text-display">Nav from MainLayout</Section>
+    <main>
+      <slot />
+    </main>
+    <Section tagType="footer">Footer from MainLayout</Section>
+  </body>
+</html>
