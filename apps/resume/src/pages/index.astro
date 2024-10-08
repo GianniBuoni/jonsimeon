@@ -1,17 +1,15 @@
 ---
-import MainHead from "@ui/astro/MainHead.astro";
+import MainLayout from "@ui/layouts/MainLayout.astro";
 
 const siteInfo = {
-  title: "Resume",
-  description: "Lalallalal",
+  title: "Jon Simeon ⋅ Let's work together!",
+  description:
+    "My interactive resume featuring some projects I've worked on. I'd love to work with you!",
 };
 
 const { title, description } = siteInfo;
 ---
 
-<html lang="en">
-  <MainHead {title} {description} />
-  <body class="p-5">
-    <h1 class="text-3xl font-display font-bold">Astro</h1>
-  </body>
-</html>
+<MainLayout {title} {description}>
+  <main>Astro</main>
+</MainLayout>
