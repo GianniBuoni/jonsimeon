@@ -1,0 +1,19 @@
+---
+import MainLayout from "@ui/layouts/MainLayout.astro";
+import Footer from "@ui/astro/Footer.astro";
+
+const siteInfo = {
+  title: "Let's work together!",
+  description:
+    "My interactive resume featuring some projects I've worked on. I'd love to work with you!",
+};
+
+const { title, description } = siteInfo;
+---
+
+<MainLayout {title} {description}>
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</MainLayout>

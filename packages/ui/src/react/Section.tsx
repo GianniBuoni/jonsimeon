@@ -2,28 +2,34 @@ import * as React from "react";
 import { clsx } from "clsx";
 
 const sectionTypes = {
-  footer: "bg-accent text-accent-content",
+  footer: "bg-accent text-accent-content bg-opacity-90",
   nav: "",
   section: "",
 };
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
-  tagType: keyof typeof sectionTypes;
+  tagType?: keyof typeof sectionTypes;
   children: React.ReactNode;
   classes?: string;
   innerClasses?: string;
 }
 
 const Section = (
-  { tagType, classes, children, innerClasses, ...rest }: Props,
+  { tagType = "section", classes, children, innerClasses, ...rest }: Props,
   ref: React.LegacyRef<HTMLElement>,
 ) => {
   // map tag type with object
   const Tag = tagType;
 
   // className array that includes any additional classes
-  const classNames = clsx(["w-screen", "relative", classes]);
-  const innerDiv = clsx(["p-10 lg:max-w-screen-xl m-auto", innerClasses]);
+  const classNames = clsx(["w-screen", sectionTypes[tagType], classes]);
+
+  const innerDiv = clsx([
+    "p-10 lg:p-16 lg:max-w-screen-xl m-auto",
+    "relative",
+    tagType == "nav" ? "py-5" : "",
+    innerClasses,
+  ]);
 
   return (
     // outer tag is a semantic tag, strings from the sectionTypes object should become classes

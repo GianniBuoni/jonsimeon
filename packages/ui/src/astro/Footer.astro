@@ -1,0 +1,41 @@
+---
+import Button from "@ui/react/Button";
+import Section from "@ui/react/Section";
+---
+
+<Section
+  tagType="footer"
+  id="contact"
+  aria-label="Site info and contact"
+>
+  <slot/>
+  <div class="flex flex-col gap-5">
+    <strong>
+      Jon Simeon &copy; <span id="thisYear">2024</span>
+    </strong>
+    <p>
+      This site was made with love and enthusiasm! <br />
+      Coded by yours truly using Astro 🚀, React ⚛️, and Framer Motion 🎥. <br
+      />
+      Thanks for giving it a look-see!
+    </p>
+    <div class="flex flex-wrap gap-2 items-center">
+      <p>If you'd like to get in contact, please</p>
+      <a id="contact-me">
+        <Button hover="neutral">👋 Send me a message!</Button>
+      </a>
+    </div>
+  </div>
+</Section>
+
+<script>
+  // year
+  const thisYear = new Date().getFullYear().toString();
+  document.getElementById("thisYear")!.textContent = thisYear;
+
+  // email
+  const mailEnc = "ai5kLnNpbWVvbkBnbWFpbC5jb20=";
+  document
+    .getElementById("contact-me")
+    ?.setAttribute("href", "mailto:".concat(atob(mailEnc)));
+</script>
