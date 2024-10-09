@@ -114,6 +114,10 @@ importers:
         version: link:../../packages/ts-config
 
   packages/lib:
+    dependencies:
+      '@directus/sdk':
+        specifier: ^17.0.2
+        version: 17.0.2
     devDependencies:
       '@jonsimeon/ts-config':
         specifier: workspace:^
@@ -135,6 +139,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@jonsimeon/lib':
+        specifier: workspace:^
+        version: link:../lib
       clsx:
         specifier: ^2.1.1
         version: 2.1.1

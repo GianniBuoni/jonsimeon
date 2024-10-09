@@ -1,21 +1,13 @@
 ---
 import SiteMessage from "@ui/astro/SiteMessage.astro";
 import Link from "@ui/react/Link";
-import { env } from "@lib/sharedEnv";
 
-const asset = env.PUBLIC_ASSETS;
 const home = import.meta.env.BASE_URL;
 
 const title = "Page not found!";
 const description = "404, page not found. Go back to homepage?";
 ---
 
-<SiteMessage
-  {title}
-  {description}
-  imgSrc={`${asset}/226984ec-de51-4818-82ac-b9bce237e9da?key=icon`}
-  alt="This is my dog, Noodle!"
-  message="Whoops! We seem to be lost."
->
+<SiteMessage {title} {description} message="Whoops! We seem to be lost.">
   <p>Let's go back <Link href={home}>home</Link>, shall we?</p>
 </SiteMessage>

@@ -5,5 +5,8 @@
   "devDependencies": {
     "@jonsimeon/ts-config": "workspace:^",
     "@types/node": "^22.7.4"
+  },
+  "dependencies": {
+    "@directus/sdk": "^17.0.2"
   }
 }
