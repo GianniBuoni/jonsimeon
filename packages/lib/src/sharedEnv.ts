@@ -3,7 +3,7 @@ import { z } from "zod";
 import { config } from "dotenv";
 
 config({
-  path: "../../../.env",
+  path: "../.env",
 });
 
 export const env = createEnv({
