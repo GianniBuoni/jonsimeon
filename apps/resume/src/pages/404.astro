@@ -1,8 +1,9 @@
 ---
 import SiteMessage from "@ui/astro/SiteMessage.astro";
 import Link from "@ui/react/Link";
+import { env } from "@lib/sharedEnv";
 
-const asset = import.meta.env.PUBLIC_ASSETS;
+const asset = env.PUBLIC_ASSETS;
 const home = import.meta.env.BASE_URL;
 
 const title = "Page not found!";

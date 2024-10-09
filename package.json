@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "@astrojs/ts-plugin": "^1.10.2",
+    "@t3-oss/env-core": "^0.11.1",
     "astro": "^4.15.12",
+    "dotenv": "^16.4.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@fontsource-variable/chivo": "^5.1.0",

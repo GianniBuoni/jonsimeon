@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "../../",
     "paths": {
-      "@lib/*": ["packages/lib/*"],
+      "@lib/*": ["packages/lib/src/*"],
       "@ui/*": ["packages/ui/src/*"]
     },
     "jsx": "react-jsx",
