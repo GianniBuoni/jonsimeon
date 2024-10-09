@@ -14,6 +14,7 @@
     "@astrojs/node": "^8.3.4",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.1",
+    "@directus/sdk": "^17.0.2",
     "@jonsimeon/ui": "workspace:^",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",

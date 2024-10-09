@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/ts-plugin':
+        specifier: ^1.10.2
+        version: 1.10.2
+      astro:
+        specifier: ^4.15.12
+        version: 4.15.12(typescript@5.6.2)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -60,6 +66,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.1
         version: 5.1.1(astro@4.15.12)(tailwindcss@3.4.13)
+      '@directus/sdk':
+        specifier: ^17.0.2
+        version: 17.0.2
       '@jonsimeon/ui':
         specifier: workspace:^
         version: link:../../packages/ui
@@ -284,6 +293,18 @@ packages:
       which-pm-runs: 1.1.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@astrojs/ts-plugin@1.10.2:
+    resolution: {integrity: sha512-Q7EvUh9dU9Ufi6Jfe5JRcisBuremlLZ7jJImUY2/eMe6OVwCXSmETDir/tVwT0K+lnfNiUwju9qHZYX2/5ch0Q==}
+    dependencies:
+      '@astrojs/compiler': 2.10.3
+      '@astrojs/yaml2ts': 0.2.1
+      '@jridgewell/sourcemap-codec': 1.5.0
+      '@volar/language-core': 2.4.6
+      '@volar/typescript': 2.4.6
+      semver: 7.6.3
+      vscode-languageserver-textdocument: 1.0.12
     dev: false
 
   /@astrojs/yaml2ts@0.2.1:
@@ -514,6 +535,11 @@ packages:
       '@babel/helper-string-parser': 7.25.7
       '@babel/helper-validator-identifier': 7.25.7
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@directus/sdk@17.0.2:
+    resolution: {integrity: sha512-gKfWH6oQKnHw6mUl5lM32PTjtWrmSF6f09/zfN/74FKGPD853srCwip6rGif2R0GfdcrPHXwGHc7vTMXNDlniw==}
+    engines: {node: '>=18.0.0'}
     dev: false
 
   /@emmetio/abbreviation@2.3.3:

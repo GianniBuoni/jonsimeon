@@ -1,21 +1,30 @@
 ---
-import MainLayout from "@ui/layouts/MainLayout.astro"
-import Section from "@ui/react/Section"
+import MainLayout from "@ui/layouts/MainLayout.astro";
+import Heading from "@ui/react/Heading";
+import Section from "@ui/react/Section";
 
-const { title, description } = Astro.props;
-const asset = import.meta.env.PUBLIC_ASSETS
+interface Props {
+  title: string;
+  description: string;
+  imgSrc: string;
+  alt: string;
+  message: string;
+}
+
+const { title, description, imgSrc, alt, message } = Astro.props;
 ---
 
 <MainLayout {title} {description}>
   <main>
-    <Section classes="h-screen flex items-center" innerClasses="flex">
-      <img
-        src={`${asset}/226984ec-de51-4818-82ac-b9bce237e9da?key=icon`}
-        alt="This is my dog, Noodle!"
-        height="200"
-        width="200"
-      />
-      <slot />
+    <Section
+      classes="h-screen flex items-center"
+      innerClasses="flex items-center"
+    >
+      <img src={imgSrc} alt={alt} height="200" width="200" class="mr-10" />
+      <div class="flex flex-col pb-5">
+        <Heading tagName="h1" size="h1">{message}</Heading>
+        <slot />
+      </div>
     </Section>
   </main>
 </MainLayout>

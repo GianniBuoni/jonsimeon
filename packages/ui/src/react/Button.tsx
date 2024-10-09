@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 export const buttonColors = {
   primary: "btn-primary",

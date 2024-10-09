@@ -9,8 +9,8 @@
     ".": "./dist/index.css"
   },
   "scripts": {
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css"
+    "dev": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "build": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css"
   },
   "devDependencies": {
     "@jonsimeon/tailwind-config": "workspace:^",
