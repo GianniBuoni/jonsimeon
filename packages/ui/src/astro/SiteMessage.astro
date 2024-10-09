@@ -1,0 +1,21 @@
+---
+import MainLayout from "@ui/layouts/MainLayout.astro"
+import Section from "@ui/react/Section"
+
+const { title, description } = Astro.props;
+const asset = import.meta.env.PUBLIC_ASSETS
+---
+
+<MainLayout {title} {description}>
+  <main>
+    <Section classes="h-screen flex items-center" innerClasses="flex">
+      <img
+        src={`${asset}/226984ec-de51-4818-82ac-b9bce237e9da?key=icon`}
+        alt="This is my dog, Noodle!"
+        height="200"
+        width="200"
+      />
+      <slot />
+    </Section>
+  </main>
+</MainLayout>
