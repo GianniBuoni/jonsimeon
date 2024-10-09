@@ -3,7 +3,6 @@ import dbClient from "@lib/db/directus";
 
 const request = await dbClient.request(
   readItems("site_assets", {
-    //@ts-ignore
     fields: ["title", { image: ["id", "description"] }],
     filter: {
       title: {

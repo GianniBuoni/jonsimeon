@@ -15,6 +15,7 @@ const dbClient = createDirectus<Schema>(directusURL)
 type Schema = {
   posts: Post[];
   site_assets: SiteAsset[];
+  directus_files: DirectusFile[]; // I was getting type errors without this added
 };
 
 type SiteAsset = {
