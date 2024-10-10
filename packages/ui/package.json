@@ -9,7 +9,7 @@
     ".": "./dist/index.css"
   },
   "scripts": {
-    "dev": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev": "astro sync & tailwindcss -i ./src/styles.css -o ./dist/index.css --watch &",
     "build": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css"
   },
   "devDependencies": {

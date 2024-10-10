@@ -2,17 +2,12 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "dev": {
-      "dependsOn": [
-        "^dev"
-      ]
+      "dependsOn": ["^dev"]
     },
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "{projectRoot}/./dist"
-      ],
+      "dependsOn": ["^build"],
+      "inputs": ["{projectRoot}/src/**/*", "!{projectRoot}/**/*.md"],
+      "outputs": ["{projectRoot}/./dist"],
       "cache": true
     }
   },
