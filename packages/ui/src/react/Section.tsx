@@ -25,9 +25,8 @@ const Section = (
   const classNames = clsx(["w-screen", sectionTypes[tagType], classes]);
 
   const innerDiv = clsx([
-    "p-10 lg:p-16 lg:max-w-screen-xl m-auto",
+    "p-5 lg:p-10 lg:max-w-screen-xl m-auto",
     "relative",
-    tagType == "nav" ? "py-5" : "",
     innerClasses,
   ]);
 

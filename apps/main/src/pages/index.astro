@@ -12,11 +12,21 @@ const blog = "https://blog.jonsimeon.com";
 
 <SiteMessage {title} {description}>
   <Fragment slot="heading">
-    Fun things<br />
-    are on their way! <small>⭐</small>
+    <span>Fun things</span><br />
+    <span class="flex items-center gap-3">
+      are on their way!
+      <img
+        class="portrait:hidden pt-3"
+        width="32"
+        height="32"
+        src="/favicon.svg"
+      />
+    </span>
   </Fragment>
-  <div>
-    <p><Link href={baseUrl}>jonsimeon.com</Link> is currently being rebuilt.</p>
+  <div class="flex flex-col gap-2">
+    <p>
+      I'm working on rebuilding &nbsp;<Link href={baseUrl}>jonsimeon.com</Link>.
+    </p>
     <p>
       In the meanwhile, check out my <Link href={resume}>resume</Link> and my <Link
         href={blog}>blog</Link
