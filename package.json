@@ -2,8 +2,8 @@
   "name": "jonsimeon",
   "private": true,
   "scripts": {
-    "build": "nx run-many -p -t build",
-    "dev": "nx run-many -p -t dev",
+    "build": "nx run-many -t build --parallel=4 ",
+    "dev": "nx run-many -t dev --parallel=4 ",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {

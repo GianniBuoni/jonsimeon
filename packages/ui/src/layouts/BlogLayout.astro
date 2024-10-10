@@ -1,0 +1,19 @@
+---
+import MainLayout from "@ui/layouts/MainLayout.astro";
+import Footer from "@ui/astro/Footer.astro";
+
+const siteInfo = {
+  title: "Noodle is a Doodle!",
+  description:
+    "This is blog about my dog, Noodle. I take a lot of pictures of her and would love to share them with you!",
+};
+
+const { title, description } = siteInfo;
+---
+
+<MainLayout {title} {description}>
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</MainLayout>
