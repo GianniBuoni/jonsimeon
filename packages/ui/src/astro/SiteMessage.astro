@@ -3,15 +3,14 @@ import MainLayout from "@ui/layouts/MainLayout.astro";
 import Heading from "@ui/react/Heading";
 import Section from "@ui/react/Section";
 import { env } from "@lib/sharedEnv";
-import {noodleAvatar} from "@lib/db/asset-queries/noodle-avatar"
+import { noodleAvatar } from "@lib/db/asset-queries/noodle-avatar";
 
 interface Props {
   title: string;
   description: string;
-  message: string;
 }
 
-const { title, description, message } = Astro.props;
+const { title, description } = Astro.props;
 const asset = env.PUBLIC_ASSETS;
 ---
 
@@ -28,7 +27,9 @@ const asset = env.PUBLIC_ASSETS;
         width="200"
       />
       <div class="flex flex-col pb-5">
-        <Heading tagName="h1" size="h1">{message}</Heading>
+        <Heading tagName="h1" size="h1" classes="tracking-wide">
+          <slot name="heading" />
+        </Heading>
         <slot />
       </div>
     </Section>

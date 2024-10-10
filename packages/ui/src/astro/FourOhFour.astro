@@ -1,0 +1,17 @@
+---
+import SiteMessage from "@ui/astro/SiteMessage.astro";
+import Link from "@ui/react/Link";
+
+const home = import.meta.env.BASE_URL;
+
+const title = "Page not found!";
+const description = "404, page not found. Go back to homepage?";
+---
+
+<SiteMessage {title} {description}>
+<Fragment slot="heading">Whoops!</Fragment>
+  <div>
+    <p>We seem to be lost.</p>
+    <p>Let's go back <Link href={home}>home</Link>, shall we?</p>
+  </div>
+</SiteMessage>
