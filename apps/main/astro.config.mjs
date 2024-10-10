@@ -9,7 +9,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   publicDir: "../../public",
-  site: "https://resume.jonsimeon.com",
+  site: "https://jonsimeon.com",
   integrations: [tailwind(), react()],
   output: "hybrid",
 
