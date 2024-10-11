@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Section from "@ui/react/Section";
+import HeroGreeting from "@ui/react/HeroGreeting";
+import Logo from "@ui/react/Logo";
+import HeroBg from "@ui/react/HeroBg";
+
+import { env } from "@lib/sharedEnv";
+import { heroImage } from "@lib/db/asset-queries/heroImage";
+const imgSrc = env.PUBLIC_ASSETS + "/" + heroImage.id;
+---
+
+<Section
+  classes="h-screen bg-base-300 overflow-hidden"
+  innerClasses={`flex flex-col h-full`}
+  id="home"
+  aria-label="Welcome, I'm Jon Simeon"
+>
+  <HeroBg {imgSrc} client:load />
+  <Logo />
+  <HeroGreeting
+    first="Hello!"
+    second={`Let's work\ntogether!`}
+    final="Get to know me! Scroll down to see what I've been up to."
+    client:visible
+  />
+  <a href="#resume" class="z-20">
+    <Icon
+      name="mdi:arrow-down-circle"
+      width={40}
+      height={40}
+      class="animate-bounce text-accent mb-10 lg:mb-5"
+    />
+  </a>
+</Section>

@@ -12,13 +12,16 @@
     "dev": "astro sync & tailwindcss -i ./src/styles.css -o ./dist/index.css --watch &",
     "build": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css"
   },
+  "dependencies": {
+    "@jonsimeon/lib": "workspace:^",
+    "@react-hook/window-size": "^3.1.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.7",
+    "react-type-animation": "^3.2.0"
+  },
   "devDependencies": {
     "@jonsimeon/tailwind-config": "workspace:^",
     "@jonsimeon/ts-config": "workspace:^",
     "typescript": "^5.6.2"
-  },
-  "dependencies": {
-    "@jonsimeon/lib": "workspace:^",
-    "clsx": "^2.1.1"
   }
 }
