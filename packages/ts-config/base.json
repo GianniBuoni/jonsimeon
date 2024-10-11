@@ -3,7 +3,10 @@
   "compilerOptions": {
     "baseUrl": "../../",
     "paths": {
+      "@blog/*": ["apps/blog/src/*"],
       "@lib/*": ["packages/lib/src/*"],
+      "@main/*": ["apps/main/src/*"],
+      "@resume/*": ["apps/resume/src/*"],
       "@ui/*": ["packages/ui/src/*"]
     },
     "jsx": "react-jsx",
