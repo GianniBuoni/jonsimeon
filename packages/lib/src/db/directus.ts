@@ -16,6 +16,7 @@ type Schema = {
   posts: Post[];
   site_assets: SiteAsset[];
   directus_files: DirectusFile[]; // I was getting type errors without this added
+  icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
 };
 
 type SiteAsset = {
@@ -23,6 +24,17 @@ type SiteAsset = {
   title: string;
   image: DirectusFile;
 };
+
+type IconBadge = {
+  id: string;
+  icon: string;
+  href: string;
+  label: string;
+  description: string;
+  tags: IconTag[];
+};
+
+type IconTag = "skills" | "links";
 
 type Post = {
   id: string;

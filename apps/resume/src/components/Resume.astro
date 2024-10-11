@@ -1,0 +1,18 @@
+---
+import { readItems } from "@directus/sdk";
+import Heading from "@ui/react/Heading";
+import Section from "@ui/react/Section";
+
+import dbClient from "@lib/db/directus";
+
+const allSkills = await dbClient.request(
+  readItems("icon_badge", { fields: ["icon", "label", "description", "tags"] }),
+);
+const filteredSkills = allSkills.filter((a) => a.tags.includes("skills"));
+console.log(filteredSkills);
+---
+
+<Section id="resume">
+  <Heading tagName="h2" size="h1">Resume</Heading>
+  <div class="flex flex-wrap lg:flex-nowrap gap-5"></div>
+</Section>
