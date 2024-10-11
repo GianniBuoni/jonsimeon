@@ -11,13 +11,26 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    project = "jonsimeon";
     nx = pkgs.writeShellScriptBin "nx" ''
-      pnpm nx run-many -t $1 -p @jonsimeon/$2 --parallel
+      pnpm nx run-many -t $1 -p @${project}/$2 --parallel
+    '';
+    pnf = pkgs.writeShellScriptBin "pnf" ''
+      pnpm --filter @${project}/$1 $2
+    '';
+    werk-werk = pkgs.writeShellScriptBin "werk-werk" ''
+      tmux split-window -h -p 25 &&
+      tmux select-window -t 1 && nvim &&
+      tmux select-window -t 2
     '';
   in {
     devShells.${system}.default = pkgs.mkShell {
-      packages = [nx];
-      shellHook = "echo 🐶 CODING TIME && nx dev resume";
+      packages = [nx pnf werk-werk];
+      shellHook = ''
+        tmux new-session -A -d -s ${project} &&
+        tmux send-keys -t ${project} 'werk-werk' Enter &&
+        tmux attach-session -t ${project}
+      '';
     };
   };
 }
