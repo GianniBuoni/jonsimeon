@@ -20,8 +20,7 @@
     '';
     werk-werk = pkgs.writeShellScriptBin "werk-werk" ''
       tmux split-window -h -p 25 &&
-      tmux select-window -t 1 && nvim &&
-      tmux select-window -t 2
+      tmux select-pane -t 1 && nvim
     '';
   in {
     devShells.${system}.default = pkgs.mkShell {
@@ -29,6 +28,7 @@
       shellHook = ''
         tmux new-session -A -d -s ${project} &&
         tmux send-keys -t ${project} 'werk-werk' Enter &&
+        tmux send -t ${project} C-l &&
         tmux attach-session -t ${project}
       '';
     };
