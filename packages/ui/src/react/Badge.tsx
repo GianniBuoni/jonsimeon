@@ -1,5 +1,4 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 import clsx from "clsx";
 
 interface Props extends React.HTMLAttributes<HTMLLIElement> {
