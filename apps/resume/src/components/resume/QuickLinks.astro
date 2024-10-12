@@ -1,7 +1,8 @@
 ---
+import { Icon } from "astro-icon/components";
 import Card from "@ui/react/Card";
 import Heading from "@ui/react/Heading";
-import IconBadge from "@ui/react/IconBadge";
+import Badge from "@ui/react/Badge";
 
 //lib
 import dbClient from "@lib/db/directus";
@@ -21,9 +22,10 @@ const toc = await dbClient.request(
     <ul class="flex flex-col gap-2">
       {
         toc.map((i) => (
-          <IconBadge icon={i.icon} client:load>
+          <Badge icon={i.icon} client:load>
+            <Icon name={i.icon} />
             <a href={i.href}>{i.label}</a>
-          </IconBadge>
+          </Badge>
         ))
       }
     </ul>

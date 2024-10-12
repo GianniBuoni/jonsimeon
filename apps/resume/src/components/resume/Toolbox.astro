@@ -1,8 +1,9 @@
 ---
 // components
+import { Icon } from "astro-icon/components";
 import Card from "@ui/react/Card";
 import Heading from "@ui/react/Heading";
-import IconBadge from "@ui/react/IconBadge";
+import Badge from "@ui/react/Badge";
 
 // library
 import { readItems } from "@directus/sdk";
@@ -35,14 +36,15 @@ const allSkills = await dbClient.request(
     <ul class="flex flex-wrap gap-2 my-5">
       {
         allSkills.map((i) => (
-          <IconBadge
+          <Badge
             icon={i.icon}
             title={i.description}
             classes="cursor-zoom-in"
             client:load
           >
+            <Icon name={i.icon} />
             {i.label}
-          </IconBadge>
+          </Badge>
         ))
       }
     </ul>

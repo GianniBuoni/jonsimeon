@@ -1,7 +1,8 @@
 ---
 // components
+import { Icon } from "astro-icon/components";
 import Card from "@ui/react/Card";
-import IconBadge from "@ui/react/IconBadge";
+import Badge from "@ui/react/Badge";
 import Heading from "@ui/react/Heading";
 
 // data
@@ -39,14 +40,15 @@ const imgUrl = env.PUBLIC_ASSETS + "/" + meAvatar.id;
     <ul class="flex flex-col gap-2">
       {
         meInfo.map((i) => (
-          <IconBadge
+          <Badge
             icon={i.icon}
             title={i.description}
             classes="cursor-zoom-in"
             client:load
           >
+          <Icon name={i.icon}/>
             {i.label}
-          </IconBadge>
+          </Badge>
         ))
       }
     </ul>

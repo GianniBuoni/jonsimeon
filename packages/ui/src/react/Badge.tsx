@@ -7,7 +7,7 @@ interface Props extends React.HTMLAttributes<HTMLLIElement> {
   classes?: string;
 }
 
-const IconBadge = ({ icon, classes, children, ...rest }: Props) => {
+const Badge = ({ icon, classes, children, ...rest }: Props) => {
   const badgeClasses = clsx([
     "badge",
     "badge-accent",
@@ -19,10 +19,9 @@ const IconBadge = ({ icon, classes, children, ...rest }: Props) => {
 
   return (
     <li className={badgeClasses} {...rest}>
-      <Icon icon={icon} />
       {children}
     </li>
   );
 };
 
-export default IconBadge;
+export default Badge;
