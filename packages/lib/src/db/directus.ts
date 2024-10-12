@@ -19,24 +19,24 @@ type Schema = {
   icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
 };
 
-type SiteAsset = {
+export type SiteAsset = {
   id: string;
   title: string;
   image: DirectusFile;
 };
 
-type IconBadge = {
+export type IconBadge = {
   id: string;
   icon: string;
   href: string;
   label: string;
   description: string;
-  tags: IconTag[];
+  tag: IconTag;
 };
 
-type IconTag = "skills" | "links";
+export type IconTag = "skills" | "resume-toc" | "me";
 
-type Post = {
+export type Post = {
   id: string;
   slug: string;
   title: string;
