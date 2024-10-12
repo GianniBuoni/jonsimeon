@@ -176,6 +176,9 @@ importers:
       '@directus/sdk':
         specifier: ^17.0.2
         version: 17.0.2
+      '@iconify-json/devicon-plain':
+        specifier: ^1.2.4
+        version: 1.2.4
       '@iconify-json/mdi':
         specifier: ^1.2.1
         version: 1.2.1
@@ -222,6 +225,9 @@ importers:
       '@directus/sdk':
         specifier: ^17.0.2
         version: 17.0.2
+      zustand:
+        specifier: 5.0.0-rc.2
+        version: 5.0.0-rc.2(@types/react@18.3.11)(react@18.3.1)
     devDependencies:
       '@jonsimeon/ts-config':
         specifier: workspace:^
@@ -964,6 +970,12 @@ packages:
   /@fontsource/paytone-one@5.1.0:
     resolution: {integrity: sha512-xWsdMKzfGUUhsB+fY1EuVJHmHxEb0+d1/nuODriyeyHWGwglEWqC+pLdEqYh0yuSUnUidOPUFrUbCOrt/okXEw==}
     dev: true
+
+  /@iconify-json/devicon-plain@1.2.4:
+    resolution: {integrity: sha512-zJEj6CFhRytWWEFU58cb4qccVXpGDKxhlyaIRspJuRh2nlu2oz75lZgw6C9u8yGOT0X8DTO/RbXN1rnYmonogg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: false
 
   /@iconify-json/mdi@1.2.1:
     resolution: {integrity: sha512-dSkQU78gsZV6Yxnq78+LuX7jzeFC/5NAmz7O3rh558GimGFcwMVY/OtqRowIzjqJBmMmWZft7wkFV4TrwRXjlg==}
@@ -5624,6 +5636,28 @@ packages:
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+    dev: false
+
+  /zustand@5.0.0-rc.2(@types/react@18.3.11)(react@18.3.1):
+    resolution: {integrity: sha512-o2Nwuvnk8vQBX7CcHL8WfFkZNJdxB/VKeWw0tNglw8p4cypsZ3tRT7rTRTDNeUPFS0qaMBRSKe+fVwL5xpcE3A==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
+    dependencies:
+      '@types/react': 18.3.11
+      react: 18.3.1
     dev: false
 
   /zwitch@2.0.4:

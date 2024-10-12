@@ -17,6 +17,7 @@ type Schema = {
   site_assets: SiteAsset[];
   directus_files: DirectusFile[]; // I was getting type errors without this added
   icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
+  projects: Project[];
 };
 
 export type SiteAsset = {
@@ -44,6 +45,15 @@ export type Post = {
   description: string;
   body: string;
   hero_image: DirectusFile;
+};
+
+export type Project = {
+  title: string;
+  subtitle?: string;
+  heroImage: DirectusFile;
+  carousel: DirectusFile[];
+  links: IconBadge[];
+  skills: IconBadge[];
 };
 
 export default dbClient;
