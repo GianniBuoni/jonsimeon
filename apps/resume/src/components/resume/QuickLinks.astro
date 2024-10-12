@@ -12,6 +12,7 @@ const toc = await dbClient.request(
   readItems("icon_badge", {
     fields: ["icon", "label", "href"],
     filter: { tag: { _eq: "resume-toc" } },
+    sort: "description",
   }),
 );
 ---
@@ -22,7 +23,7 @@ const toc = await dbClient.request(
     <ul class="flex flex-col gap-2">
       {
         toc.map((i) => (
-          <Badge icon={i.icon} client:load>
+          <Badge icon={i.icon}>
             <Icon name={i.icon} />
             <a href={i.href}>{i.label}</a>
           </Badge>

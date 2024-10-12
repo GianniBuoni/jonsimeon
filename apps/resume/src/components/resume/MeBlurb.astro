@@ -15,6 +15,7 @@ const meInfo = await dbClient.request(
   readItems("icon_badge", {
     fields: ["label", "icon", "description"],
     filter: { tag: { _eq: "me" } },
+    sort: "label",
   }),
 );
 const imgUrl = env.PUBLIC_ASSETS + "/" + meAvatar.id;
@@ -44,9 +45,8 @@ const imgUrl = env.PUBLIC_ASSETS + "/" + meAvatar.id;
             icon={i.icon}
             title={i.description}
             classes="cursor-zoom-in"
-            client:load
           >
-          <Icon name={i.icon}/>
+            <Icon name={i.icon} />
             {i.label}
           </Badge>
         ))

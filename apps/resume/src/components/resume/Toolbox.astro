@@ -14,6 +14,7 @@ const allSkills = await dbClient.request(
   readItems("icon_badge", {
     fields: ["icon", "label", "description"],
     filter: { tag: { _eq: "skills" } },
+    sort: "label",
   }),
 );
 ---
@@ -40,7 +41,6 @@ const allSkills = await dbClient.request(
             icon={i.icon}
             title={i.description}
             classes="cursor-zoom-in"
-            client:load
           >
             <Icon name={i.icon} />
             {i.label}
