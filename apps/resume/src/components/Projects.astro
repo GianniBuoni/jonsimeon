@@ -20,13 +20,5 @@ const settings = {
 
 <Section id="projects" aria-label="Featured set of my favorite projects">
   <Heading tagName="h3" size="h1">Projects</Heading>
-  <CarouselControls {settings} store="carousel" client:load />
-  <CarouselControls
-    settings={{
-      maxLength: 20,
-      offset: 100,
-    }}
-    store="modal"
-    client:load
-  />
+  <CarouselControls {settings} store="modal" client:load />
 </Section>

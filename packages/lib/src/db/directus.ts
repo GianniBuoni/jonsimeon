@@ -13,11 +13,13 @@ const dbClient = createDirectus<Schema>(directusURL)
 
 // define schema
 type Schema = {
+  icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
   posts: Post[];
+  projects: Project[];
+  resume: Resume;
+  resume_icon_badge: ResumeBadge[];
   site_assets: SiteAsset[];
   directus_files: DirectusFile[]; // I was getting type errors without this added
-  icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
-  projects: Project[];
 };
 
 export type SiteAsset = {
@@ -48,12 +50,24 @@ export type Post = {
 };
 
 export type Project = {
+  id: string;
   title: string;
   subtitle?: string;
-  heroImage: DirectusFile;
-  carousel: DirectusFile[];
+  hero_image: DirectusFile;
+  carousel_image: DirectusFile[];
   links: IconBadge[];
-  skills: IconBadge[];
+};
+
+export type Resume = {
+  id: string;
+  toc: ResumeBadge[];
+  projects: Project[];
+};
+
+export type ResumeBadge = {
+  id: number;
+  resume_id: Resume["id"];
+  icon_badge_id: IconBadge["id"];
 };
 
 export default dbClient;
