@@ -2,23 +2,28 @@
 //components
 import Section from "@ui/react/Section";
 import Heading from "@ui/react/Heading";
+import ImageCarousel from "@ui/react/carousel/ImageCarousel";
 import CarouselControls from "@ui/react/carousel/CarouselControls";
+import Card from "@ui/react/Card";
 
-import dbClient from "@lib/db/directus";
-import { readItems } from "@directus/sdk";
+// lib
 import type { CarouselSettings } from "@lib/stores/types";
+import { resumeProjects, heroImages } from "@resume/lib/resumeProjects";
 
-const allSkills = await dbClient.request(
-  readItems("icon_badge", { filter: { tag: { _eq: "skills" } } }),
-);
-
-const settings = {
-  maxLength: allSkills.length - 1,
+const settings: CarouselSettings = {
   offset: 300,
-} satisfies CarouselSettings;
+  maxLength: resumeProjects.length - 1,
+};
 ---
 
-<Section id="projects" aria-label="Featured set of my favorite projects">
+<Section
+  id="projects"
+  aria-label="Featured set of my favorite projects"
+  classes="landscape:min-h-screen"
+>
   <Heading tagName="h3" size="h1">Projects</Heading>
-  <CarouselControls {settings} store="modal" client:load />
+  <Card classes="mb-5 h-12">
+    <CarouselControls {settings} store="modal" client:load />
+  </Card>
+  <ImageCarousel store="modal" array={heroImages} client:visible />
 </Section>

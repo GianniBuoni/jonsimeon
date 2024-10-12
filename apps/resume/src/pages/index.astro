@@ -1,16 +1,18 @@
 ---
 import ResumeLayout from "@ui/layouts/ResumeLayout.astro";
-import Section from "@ui/react/Section";
 import HeroSection from "@resume/components/HeroSection.astro";
 import ResumeMarquee from "@resume/components/ResumeMarquee.astro";
 import Resume from "@resume/components/resume/Resume.astro";
 import Projects from "@resume/components/Projects.astro";
+import Experience from "@resume/components/Experience.astro";
 ---
 
 <ResumeLayout>
   <HeroSection />
   <ResumeMarquee />
   <Resume />
-  <Projects />
-  <Section>Experience</Section>
+  <div class="landscape:flex max-w-screen-xl m-auto">
+    <Projects />
+    <Experience />
+  </div>
 </ResumeLayout>

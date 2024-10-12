@@ -13,12 +13,11 @@ interface Props {
 const CarouselControls = ({ store, settings }: Props) => {
   const currentStore =
     store === "carousel" ? useCarouselStore() : useModalStore();
-  const { increment, decrement, page } = currentStore;
+  const { increment, decrement } = currentStore;
 
   return (
     <div className="w-full h-full flex justify-between">
       <NavIcon direction="previous" onClick={() => decrement(settings)} />
-      {page.toString()}
       <NavIcon direction="forward" onClick={() => increment(settings)} />
     </div>
   );

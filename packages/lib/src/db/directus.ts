@@ -18,6 +18,7 @@ type Schema = {
   projects: Project[];
   resume: Resume;
   resume_icon_badge: ResumeBadge[];
+  resume_projects: ResumeProject[];
   site_assets: SiteAsset[];
   directus_files: DirectusFile[]; // I was getting type errors without this added
 };
@@ -61,13 +62,19 @@ export type Project = {
 export type Resume = {
   id: string;
   toc: ResumeBadge[];
-  projects: Project[];
+  projects: ResumeProject[];
 };
 
 export type ResumeBadge = {
   id: number;
   resume_id: Resume["id"];
   icon_badge_id: IconBadge["id"];
+};
+
+export type ResumeProject = {
+  id: number;
+  resume_id: Resume["id"];
+  projects_id: Project["id"];
 };
 
 export default dbClient;

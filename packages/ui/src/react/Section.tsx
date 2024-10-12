@@ -22,7 +22,12 @@ const Section = (
   const Tag = tagType;
 
   // className array that includes any additional classes
-  const classNames = clsx(["w-screen", sectionTypes[tagType], classes]);
+  const classNames = clsx([
+    "w-screen",
+    "overflow-hidden",
+    sectionTypes[tagType],
+    classes,
+  ]);
 
   const innerDiv = clsx([
     "p-6 md:p-10 lg:max-w-screen-xl m-auto",
