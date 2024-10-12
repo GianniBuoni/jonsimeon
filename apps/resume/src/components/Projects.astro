@@ -3,9 +3,20 @@
 import Section from "@ui/react/Section";
 import Heading from "@ui/react/Heading";
 import CarouselWrapper from "@ui/react/carousel/CarouselWrapper";
+import Modal from "@ui/react/carousel/Modal";
+
+import dbClient from "@lib/db/directus";
+import { readItems } from "@directus/sdk";
+
+const allSkills = await dbClient.request(
+  readItems("icon_badge", { filter: { tag: { _eq: "skills" } } }),
+);
+
+const maxLength = allSkills.length - 1;
 ---
 
 <Section id="projects" aria-label="Featured set of my favorite projects">
   <Heading tagName="h3" size="h1">Projects</Heading>
-  <CarouselWrapper client:visible />
+  <Modal skills={allSkills}  client:visible/>
+  <CarouselWrapper {maxLength} client:visible />
 </Section>

@@ -1,12 +1,7 @@
 import { create } from "zustand";
+import type { CarouselPagination } from "@lib/stores/types";
 
-interface CarouselPagination {
-  page: number;
-  increment: (maxLength: number) => void;
-  decrement: (maxLength: number) => void;
-}
-
-const useProjectStore = create<CarouselPagination>((set) => ({
+const useCarouselStore = create<CarouselPagination>((set) => ({
   page: 0,
   increment: (maxLength) =>
     set((store) => ({
@@ -18,4 +13,4 @@ const useProjectStore = create<CarouselPagination>((set) => ({
     })),
 }));
 
-export default useProjectStore;
+export default useCarouselStore;
