@@ -13,6 +13,7 @@
     "build": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css"
   },
   "dependencies": {
+    "@iconify/react": "^5.0.2",
     "@jonsimeon/lib": "workspace:^",
     "@react-hook/window-size": "^3.1.1",
     "clsx": "^2.1.1",
