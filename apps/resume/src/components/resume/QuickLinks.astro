@@ -1,0 +1,31 @@
+---
+import Card from "@ui/react/Card";
+import Heading from "@ui/react/Heading";
+import IconBadge from "@ui/react/IconBadge";
+
+//lib
+import dbClient from "@lib/db/directus";
+import { readItems } from "@directus/sdk";
+
+const toc = await dbClient.request(
+  readItems("icon_badge", {
+    fields: ["icon", "label", "href"],
+    filter: { tag: { _eq: "resume-toc" } },
+  }),
+);
+---
+
+<Card color="warning" classes="md:grow-0 h-fit">
+  <div class="card-body p-5">
+    <Heading tagName="h3" size="h2"> Quick Links </Heading>
+    <ul class="flex flex-col gap-2">
+      {
+        toc.map((i) => (
+          <IconBadge icon={i.icon} client:load>
+            <a href={i.href}>{i.label}</a>
+          </IconBadge>
+        ))
+      }
+    </ul>
+  </div>
+</Card>

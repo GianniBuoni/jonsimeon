@@ -1,0 +1,54 @@
+---
+// components
+import Card from "@ui/react/Card";
+import IconBadge from "@ui/react/IconBadge";
+import Heading from "@ui/react/Heading";
+
+// data
+import dbClient from "@lib/db/directus";
+import { env } from "@lib/sharedEnv";
+import { meAvatar } from "@lib/db/asset-queries/meAvatar";
+import { readItems } from "@directus/sdk";
+
+const meInfo = await dbClient.request(
+  readItems("icon_badge", {
+    fields: ["label", "icon", "description"],
+    filter: { tag: { _eq: "me" } },
+  }),
+);
+const imgUrl = env.PUBLIC_ASSETS + "/" + meAvatar.id;
+---
+
+<Card color="info" classes="text-info-content">
+  <div class="card-body p-5">
+    <img
+      src={`${imgUrl}?key=small`}
+      alt={meAvatar.description}
+      class:list={[
+        "absolute",
+        "w-40",
+        "lg:w-32",
+        "z-10",
+        "rounded-full",
+        "drop-shadow-lg",
+        "-right-7",
+        "lg:-top-5",
+      ]}
+    />
+    <Heading tagName="h3" size="h2"> ME! </Heading>
+    <ul class="flex flex-col gap-2">
+      {
+        meInfo.map((i) => (
+          <IconBadge
+            icon={i.icon}
+            title={i.description}
+            classes="cursor-zoom-in"
+            client:load
+          >
+            {i.label}
+          </IconBadge>
+        ))
+      }
+    </ul>
+  </div>
+</Card>

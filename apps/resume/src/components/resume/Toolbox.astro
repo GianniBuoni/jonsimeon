@@ -1,0 +1,50 @@
+---
+// components
+import Card from "@ui/react/Card";
+import Heading from "@ui/react/Heading";
+import IconBadge from "@ui/react/IconBadge";
+
+// library
+import { readItems } from "@directus/sdk";
+import dbClient from "@lib/db/directus";
+
+// data
+const allSkills = await dbClient.request(
+  readItems("icon_badge", {
+    fields: ["icon", "label", "description"],
+    filter: { tag: { _eq: "skills" } },
+  }),
+);
+---
+
+<Card color="primary" classes="lg:w-1/2">
+  <div class="card-body p-5">
+    <Heading
+      tagName="h3"
+      size="h2"
+      addMargin={false}
+      classes="text-accent tracking-wide"
+    >
+      Skills
+    </Heading>
+    <p>
+      Here are some of the skills I've picked up over the years.
+      <br />
+      Hover over them to inspect! 😄
+    </p>
+    <ul class="flex flex-wrap gap-2 my-5">
+      {
+        allSkills.map((i) => (
+          <IconBadge
+            icon={i.icon}
+            title={i.description}
+            classes="cursor-zoom-in"
+            client:load
+          >
+            {i.label}
+          </IconBadge>
+        ))
+      }
+    </ul>
+  </div>
+</Card>
