@@ -7,16 +7,20 @@ import Modal from "@ui/react/carousel/Modal";
 
 import dbClient from "@lib/db/directus";
 import { readItems } from "@directus/sdk";
+import type { CarouselSettings } from "@lib/stores/types";
 
 const allSkills = await dbClient.request(
   readItems("icon_badge", { filter: { tag: { _eq: "skills" } } }),
 );
 
-const maxLength = allSkills.length - 1;
+const settings = {
+  maxLength: allSkills.length - 1,
+  offset: 300,
+} satisfies CarouselSettings;
 ---
 
 <Section id="projects" aria-label="Featured set of my favorite projects">
   <Heading tagName="h3" size="h1">Projects</Heading>
-  <Modal skills={allSkills}  client:visible/>
-  <CarouselWrapper {maxLength} client:visible />
+  <Modal skills={allSkills} client:visible />
+  <CarouselWrapper {settings} client:visible />
 </Section>

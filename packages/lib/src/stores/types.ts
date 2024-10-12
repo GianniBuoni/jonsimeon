@@ -1,5 +1,17 @@
-export type CarouselPagination = {
+export type CarouselState = {
+  // required parameters manage carousel animation state
   page: number;
-  increment: (maxLength: number) => void;
-  decrement: (maxLength: number) => void;
+  offset: number;
+  increment: (carouselObject: CarouselSettings) => void;
+  decrement: (carouselObject: CarouselSettings) => void;
+
+  // optional parameters manage carousel modal state
+  selection?: boolean;
+  select?: () => void;
+  deselect?: () => void;
+};
+
+export type CarouselSettings = {
+  maxLength: number;
+  offset: number;
 };
