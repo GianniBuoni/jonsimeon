@@ -34,7 +34,7 @@ const CarouselCard = ({ store, classes }: Props) => {
       <AnimatePresence mode="popLayout">
         <MotionCard
           key={`${store}-${page}`}
-          layoutId={projects[page].id}
+          layoutId={`${store}-${projects[page].id}`}
           initial={{ opacity: 0, x: -offset, zIndex: 0 }}
           animate={{ opacity: 1, x: 0, zIndex: 1 }}
           exit={{ opacity: 0, x: offset, zIndex: 0 }}
