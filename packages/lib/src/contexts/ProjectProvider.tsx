@@ -1,0 +1,16 @@
+import React from "react";
+import { ProjectContext } from "@lib/contexts/ProjectContext";
+
+interface Props extends ProjectContext {
+  children: React.ReactNode;
+}
+
+const ProjectProvider = ({ assets, projects, children }: Props) => {
+  return (
+    <ProjectContext.Provider value={{ assets, projects }}>
+      {children}
+    </ProjectContext.Provider>
+  );
+};
+
+export default ProjectProvider;

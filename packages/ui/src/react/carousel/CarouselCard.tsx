@@ -16,7 +16,7 @@ interface Props {
 }
 
 const CarouselCard = ({ store, classes }: Props) => {
-  const projects = useContext(ProjectContext);
+  const { assets, projects } = useContext(ProjectContext);
   const curentStore =
     store === "carousel" ? useCarouselStore() : useModalStore();
   const { page, offset, select } = curentStore;
@@ -42,7 +42,7 @@ const CarouselCard = ({ store, classes }: Props) => {
         >
           <div className="rounded-box overflow-hidden">
             <img
-              src={`${projects[page].hero_image.id}?key=medium`}
+              src={`${assets}/${projects[page].hero_image.id}?key=medium`}
               alt={projects[page].hero_image.description!}
               onClick={select ? () => select() : undefined}
               className={imgClasses}
