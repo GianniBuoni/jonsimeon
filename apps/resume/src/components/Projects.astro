@@ -3,13 +3,13 @@
 import Section from "@ui/react/Section";
 import Heading from "@ui/react/Heading";
 import CarouselControls from "@ui/react/carousel/CarouselControls";
-import CarouselCard from "@ui/react/carousel/CarouselCard";
-import ProjectProvider from "@lib/contexts/ProjectPovider";
 import Card from "@ui/react/Card";
+import CarouselWithModal from "@ui/react/carousel/CarouselWithModal";
 
 // lib
 import type { CarouselSettings } from "@lib/stores/types";
 import { resumeProjects } from "@resume/lib/resumeProjects";
+import { env } from "@lib/sharedEnv";
 
 const settings: CarouselSettings = {
   offset: 300,
@@ -21,8 +21,15 @@ const settings: CarouselSettings = {
   id="projects"
   aria-label="Featured set of my favorite projects"
   classes="landscape:min-h-screen lg:max-w-lg"
+  overrideOverflow={true}
 >
   <Heading tagName="h3" size="h1">Projects</Heading>
   <Card classes="mb-5 h-12">
+    <CarouselControls store="modal" {settings} client:visible />
   </Card>
+  <CarouselWithModal
+    assets={env.PUBLIC_ASSETS}
+    projects={resumeProjects}
+    client:visible
+  />
 </Section>

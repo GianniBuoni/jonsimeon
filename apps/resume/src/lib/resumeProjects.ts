@@ -1,8 +1,5 @@
 import { readSingleton, readItem } from "@directus/sdk";
 import dbClient, { type Project } from "@lib/db/directus";
-import { env } from "@lib/sharedEnv";
-
-const assets = env.PUBLIC_ASSETS;
 
 const resumeProjectIds = await dbClient.request(
   readSingleton("resume", {
