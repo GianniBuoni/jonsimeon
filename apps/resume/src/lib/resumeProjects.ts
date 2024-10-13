@@ -1,5 +1,5 @@
 import { readSingleton, readItem } from "@directus/sdk";
-import dbClient from "@lib/db/directus";
+import dbClient, { type Project } from "@lib/db/directus";
 import { env } from "@lib/sharedEnv";
 
 const assets = env.PUBLIC_ASSETS;
@@ -10,7 +10,7 @@ const resumeProjectIds = await dbClient.request(
   }),
 );
 
-export const resumeProjects = await Promise.all(
+export const resumeProjects = (await Promise.all(
   resumeProjectIds.projects!.map(
     async (id) =>
       await dbClient.request(
@@ -19,10 +19,4 @@ export const resumeProjects = await Promise.all(
         }),
       ),
   ),
-);
-
-export const heroImages = resumeProjects.map((project) => ({
-  id: project.hero_image.id,
-  src: assets + "/" + project.hero_image.id,
-  alt: project.hero_image.description!,
-}));
+)) as Project[];

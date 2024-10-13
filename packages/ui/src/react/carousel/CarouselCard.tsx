@@ -7,18 +7,16 @@ import Card from "@ui/react/Card";
 import useCarouselStore from "@lib/stores/useCarouselStore";
 import useModalStore from "@lib/stores/useModalStore";
 import clsx from "clsx";
+import { useContext } from "react";
+import { ProjectContext } from "@lib/contexts/ProjectContext";
 
 interface Props {
   store: "carousel" | "modal";
-  array: {
-    id: string;
-    src: string;
-    alt: string;
-  }[];
   classes?: string;
 }
 
-const ImageCarousel = ({ store, array, classes }: Props) => {
+const CarouselCard = ({ store, classes }: Props) => {
+  const projects = useContext(ProjectContext);
   const curentStore =
     store === "carousel" ? useCarouselStore() : useModalStore();
   const { page, offset, select } = curentStore;
@@ -36,7 +34,7 @@ const ImageCarousel = ({ store, array, classes }: Props) => {
       <AnimatePresence mode="popLayout">
         <MotionCard
           key={`${store}-${page}`}
-          layoutId={array[page].id}
+          layoutId={projects[page].id}
           initial={{ opacity: 0, x: -offset, zIndex: 0 }}
           animate={{ opacity: 1, x: 0, zIndex: 1 }}
           exit={{ opacity: 0, x: offset, zIndex: 0 }}
@@ -44,8 +42,8 @@ const ImageCarousel = ({ store, array, classes }: Props) => {
         >
           <div className="rounded-box overflow-hidden">
             <img
-              src={`${array[page].src}?key=medium`}
-              alt={array[page].alt}
+              src={`${projects[page].hero_image.id}?key=medium`}
+              alt={projects[page].hero_image.description!}
               onClick={select ? () => select() : undefined}
               className={imgClasses}
             />
@@ -58,4 +56,4 @@ const ImageCarousel = ({ store, array, classes }: Props) => {
 
 const MotionCard = motion.create(Card);
 
-export default ImageCarousel;
+export default CarouselCard;

@@ -2,13 +2,14 @@
 //components
 import Section from "@ui/react/Section";
 import Heading from "@ui/react/Heading";
-import ImageCarousel from "@ui/react/carousel/ImageCarousel";
 import CarouselControls from "@ui/react/carousel/CarouselControls";
+import CarouselCard from "@ui/react/carousel/CarouselCard";
+import ProjectProvider from "@lib/contexts/ProjectPovider";
 import Card from "@ui/react/Card";
 
 // lib
 import type { CarouselSettings } from "@lib/stores/types";
-import { resumeProjects, heroImages } from "@resume/lib/resumeProjects";
+import { resumeProjects } from "@resume/lib/resumeProjects";
 
 const settings: CarouselSettings = {
   offset: 300,
@@ -19,11 +20,9 @@ const settings: CarouselSettings = {
 <Section
   id="projects"
   aria-label="Featured set of my favorite projects"
-  classes="landscape:min-h-screen"
+  classes="landscape:min-h-screen lg:max-w-lg"
 >
   <Heading tagName="h3" size="h1">Projects</Heading>
   <Card classes="mb-5 h-12">
-    <CarouselControls {settings} store="modal" client:load />
   </Card>
-  <ImageCarousel store="modal" array={heroImages} client:visible />
 </Section>
