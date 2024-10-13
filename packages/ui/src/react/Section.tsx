@@ -12,10 +12,18 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   classes?: string;
   innerClasses?: string;
+  overrideOverflow?: boolean;
 }
 
 const Section = (
-  { tagType = "section", classes, children, innerClasses, ...rest }: Props,
+  {
+    tagType = "section",
+    classes,
+    children,
+    innerClasses,
+    overrideOverflow = false,
+    ...rest
+  }: Props,
   ref: React.LegacyRef<HTMLElement>,
 ) => {
   // map tag type with object
@@ -24,7 +32,7 @@ const Section = (
   // className array that includes any additional classes
   const classNames = clsx([
     "w-screen",
-    "overflow-hidden",
+    overrideOverflow ? "" : "overflow-hidden",
     sectionTypes[tagType],
     classes,
   ]);
