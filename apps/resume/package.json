@@ -17,6 +17,7 @@
     "@directus/sdk": "^17.0.2",
     "@iconify-json/devicon-plain": "^1.2.4",
     "@iconify-json/mdi": "^1.2.1",
+    "@iconify/react": "^5.0.2",
     "@jonsimeon/lib": "workspace:^",
     "@jonsimeon/ui": "workspace:^",
     "@types/react": "^18.3.11",
