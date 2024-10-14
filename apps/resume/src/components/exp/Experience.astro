@@ -1,0 +1,38 @@
+---
+import Heading from "@ui/react/Heading";
+import Section from "@ui/react/Section";
+
+// lib
+import dbClient from "@lib/db/directus";
+import { readItems } from "@directus/sdk";
+import type { Experience } from "@lib/db/schemas/experience";
+import ExpCards from "./ExpCards";
+
+const allExp = (await dbClient.request(
+  readItems("experience", {
+    fields: [
+      "title",
+      "position",
+      "start_year",
+      "end_year",
+      "body",
+      { skills: [{ icon_badge_id: ["icon", "label", "description"] }] },
+    ],
+    sort: "-start_year",
+  }),
+)) as Experience[];
+
+console.log(allExp);
+---
+
+<Section
+  id="experience"
+  aria-label="My professional experience"
+  classes="lg:landscape:w-2/3"
+  innerClasses="grow"
+>
+  <Heading tagName="h2" size="h1">Experience</Heading>
+  <div class="flex flex-wrap gap-5">
+    <ExpCards exps={allExp} client:load />
+  </div>
+</Section>
