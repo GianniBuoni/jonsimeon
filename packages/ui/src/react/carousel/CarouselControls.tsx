@@ -16,7 +16,7 @@ const CarouselControls = ({ store, settings }: Props) => {
   const { increment, decrement } = currentStore;
 
   return (
-    <div className="w-full h-full flex justify-between">
+    <div className="w-full h-5 flex justify-between">
       <NavIcon direction="previous" onClick={() => decrement(settings)} />
       <NavIcon direction="forward" onClick={() => increment(settings)} />
     </div>

@@ -2,11 +2,10 @@ import React from "react";
 import clsx from "clsx";
 
 interface Props extends React.HTMLAttributes<HTMLLIElement> {
-  icon: string;
   classes?: string;
 }
 
-const Badge = ({ icon, classes, children, ...rest }: Props) => {
+const Badge = ({ classes, children, ...rest }: Props) => {
   const badgeClasses = clsx([
     "badge",
     "badge-accent",

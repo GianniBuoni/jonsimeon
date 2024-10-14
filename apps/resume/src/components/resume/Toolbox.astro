@@ -12,7 +12,7 @@ import dbClient from "@lib/db/directus";
 // data
 const allSkills = await dbClient.request(
   readItems("icon_badge", {
-    fields: ["icon", "label", "description"],
+    fields: ["icon", "label", "description"], 
     filter: { tag: { _eq: "skills" } },
     sort: "label",
   }),
@@ -38,7 +38,6 @@ const allSkills = await dbClient.request(
       {
         allSkills.map((i) => (
           <Badge
-            icon={i.icon}
             title={i.description}
             classes="cursor-zoom-in"
           >

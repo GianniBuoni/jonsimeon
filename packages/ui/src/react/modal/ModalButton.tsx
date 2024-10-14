@@ -24,7 +24,7 @@ const ModalButton = () => {
 };
 
 const buttonClasses = clsx([
-  "absolute right-3 md:right-5", // position
+  "absolute right-0 m-2", // position
   "btn btn-circle text-3xl pb-1", //base
   "scale-75 hover:scale-100 z-30", //interactivity
 ]);

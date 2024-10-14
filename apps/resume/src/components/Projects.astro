@@ -24,7 +24,7 @@ const settings: CarouselSettings = {
   overrideOverflow={true}
 >
   <Heading tagName="h3" size="h1">Projects</Heading>
-  <Card classes="mb-5 h-12">
+  <Card classes="mb-5 h-12 flex justify-center">
     <CarouselControls store="modal" {settings} client:visible />
   </Card>
   <CarouselWithModal {projects} assets={env.PUBLIC_ASSETS} client:visible/>

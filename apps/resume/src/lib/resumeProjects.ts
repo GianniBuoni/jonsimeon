@@ -11,7 +11,7 @@ const resume = await dbClient.request(
               "id",
               "title",
               "subtitle",
-              "count(carousel_image)",
+              "body",
               { hero_image: ["id", "description"] },
               {
                 carousel_image: [{ directus_files_id: ["id", "description"] }],
