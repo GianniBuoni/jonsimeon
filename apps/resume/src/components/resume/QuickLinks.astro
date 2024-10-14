@@ -6,24 +6,15 @@ import Badge from "@ui/react/Badge";
 
 //lib
 import dbClient from "@lib/db/directus";
-import { readItem, readSingleton } from "@directus/sdk";
+import { readSingleton } from "@directus/sdk";
 
-const resumeToc = await dbClient.request(
+const resume = await dbClient.request(
   readSingleton("resume", {
-    fields: [{ toc: ["icon_badge_id"] }],
+    fields: [{ toc: [{ icon_badge_id: ["icon", "href", "label"] }] }],
   }),
 );
 
-const toc = await Promise.all(
-  resumeToc.toc!.map(
-    async (id) =>
-      await dbClient.request(
-        readItem("icon_badge", id.icon_badge_id, {
-          fields: ["icon", "label", "href"],
-        }),
-      ),
-  ),
-);
+const toc = resume.toc!.map((id) => id.icon_badge_id);
 ---
 
 <Card color="warning" classes="md:grow-0 h-fit">
