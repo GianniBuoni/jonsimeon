@@ -1,5 +1,6 @@
 import { readSingleton } from "@directus/sdk";
-import dbClient, { type Project } from "@lib/db/directus";
+import dbClient from "@lib/db/directus";
+import type { Project } from "@lib/db/schemas/projects";
 
 const resume = await dbClient.request(
   readSingleton("resume", {

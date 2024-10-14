@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { Project } from "@lib/db/directus";
+import type { Project } from "@lib/db/schemas/projects";
 
 export type ProjectContext = {
   assets: string;

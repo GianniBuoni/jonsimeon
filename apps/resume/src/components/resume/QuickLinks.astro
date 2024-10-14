@@ -23,7 +23,7 @@ const toc = resume.toc!.map((id) => id.icon_badge_id);
     <ul class="flex flex-col gap-2">
       {
         toc.map((i) => (
-          <Badge icon={i.icon}>
+          <Badge>
             <Icon name={i.icon} />
             <a href={i.href}>{i.label}</a>
           </Badge>

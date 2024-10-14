@@ -2,6 +2,9 @@ import { createDirectus, rest, staticToken } from "@directus/sdk";
 export type { DirectusFile } from "@directus/sdk";
 import type { DirectusFile } from "@directus/sdk";
 import { env } from "@lib/sharedEnv";
+import type { Post } from "./schemas/post";
+import type * as Project from "./schemas/projects";
+import type * as Resume from "./schemas/resume";
 
 //variables
 const directusURL = env.API_URL;
@@ -16,16 +19,17 @@ const dbClient = createDirectus<Schema>(directusURL)
 type Schema = {
   icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
   posts: Post[];
-  projects: Project[];
-  projects_files: ProjectsFiles[];
-  projects_icon_badge: ProjectsIconBadges[];
-  resume: Resume;
-  resume_icon_badge: ResumeBadge[];
-  resume_projects: ResumeProject[];
+  projects: Project.Project[];
+  projects_files: Project.ProjectsFiles[];
+  projects_icon_badge: Project.ProjectsIconBadges[];
+  resume: Resume.Resume;
+  resume_icon_badge: Resume.ResumeBadge[];
+  resume_projects: Resume.ResumeProject[];
   site_assets: SiteAsset[];
-  directus_files: DirectusFile[]; // I was getting type errors without this added
+  directus_files: DirectusFile[];
 };
 
+// Collections with m2m relationships
 export type SiteAsset = {
   id: string;
   title: string;
@@ -42,55 +46,5 @@ export type IconBadge = {
 };
 
 export type IconTag = "skills" | "resume-toc" | "me";
-
-export type Post = {
-  id: string;
-  slug: string;
-  title: string;
-  pub_date: string;
-  description: string;
-  body: string;
-  hero_image: DirectusFile;
-};
-
-export type Project = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  body: string;
-  hero_image: DirectusFile;
-  carousel_image: number[] | ProjectsFiles[];
-  links: number[] | ProjectsIconBadges[];
-};
-
-export type ProjectsFiles = {
-  id: number;
-  projects_id: string | Project;
-  directus_files_id: string | DirectusFile;
-};
-
-export type ProjectsIconBadges = {
-  id: number;
-  projects_id: string | Project;
-  icon_badge_id: string | IconBadge;
-};
-
-export type Resume = {
-  id: string;
-  toc: number[] | ResumeBadge[];
-  projects: number[] | ResumeProject[];
-};
-
-export type ResumeBadge = {
-  id: number;
-  resume_id: string | Resume;
-  icon_badge_id: string | IconBadge;
-};
-
-export type ResumeProject = {
-  id: number;
-  resume_id: string | Resume;
-  projects_id: string | Project;
-};
 
 export default dbClient;

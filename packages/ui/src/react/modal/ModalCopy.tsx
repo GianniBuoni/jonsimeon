@@ -1,16 +1,17 @@
 // modules
 import React, { useContext } from "react";
 import Markdown from "react-markdown";
+import clsx from "clsx";
 
 // ui
 import Heading from "@ui/react/Heading";
+import ArrayOfLinks from "@ui/react/ArrayOfLinks";
 
 // lib
 import useModalStore from "@lib/stores/useModalStore";
 import { ProjectContext } from "@lib/contexts/ProjectContext";
-import type { IconBadge, ProjectsIconBadges } from "@lib/db/directus";
-import ArrayOfLinks from "../ArrayOfLinks";
-import clsx from "clsx";
+import type { IconBadge } from "@lib/db/directus";
+import type { ProjectsIconBadges } from "@lib/db/schemas/projects";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   classes?: string;
