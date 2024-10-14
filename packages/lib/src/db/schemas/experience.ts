@@ -3,10 +3,10 @@ import type { IconBadge } from "@lib/db/directus";
 export type Experience = {
   title: string;
   position: string;
-  start: number;
-  end: number | undefined;
-  description: string;
-  skills: number[] | IconBadge[];
+  start_year: number;
+  end_year: number | undefined;
+  body: string;
+  skills: number[] | ExpsIconBadges[];
 };
 
 export type ExpsIconBadges = {
