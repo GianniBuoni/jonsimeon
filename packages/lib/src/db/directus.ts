@@ -5,6 +5,7 @@ import { env } from "@lib/sharedEnv";
 import type { Post } from "./schemas/post";
 import type * as Project from "./schemas/projects";
 import type * as Resume from "./schemas/resume";
+import type * as Experience from "./schemas/experience";
 
 //variables
 const directusURL = env.API_URL;
@@ -17,6 +18,8 @@ const dbClient = createDirectus<Schema>(directusURL)
 
 // define schema
 type Schema = {
+  experience: Experience.Experience[];
+  experience_icon_badge: Experience.ExpsIconBadges[];
   icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
   posts: Post[];
   projects: Project.Project[];
