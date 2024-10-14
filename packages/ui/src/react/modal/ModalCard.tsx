@@ -23,7 +23,7 @@ const ModalCard = () => {
     <AnimatePresence>
       <MotionCard layoutId={`modal-${project.id}`} classes={cardClasses}>
         <ModalButton />
-        <div className="row-span-3 md:row-span-1 col-span-5 flex flex-col gap-5 p-1 overflow-hidden">
+        <div className="row-span-3 md:row-span-1 col-span-5 flex flex-col gap-5 p-1">
           <Carousel />
           <CarouselControls
             store="carousel"
@@ -33,7 +33,7 @@ const ModalCard = () => {
             }}
           />
         </div>
-        <ModalCopy classes="col-span-4 md:row-span-1" />
+        <ModalCopy classes="col-span-4 md:row-span-1 bg-neutral z-20" />
       </MotionCard>
     </AnimatePresence>
   );
