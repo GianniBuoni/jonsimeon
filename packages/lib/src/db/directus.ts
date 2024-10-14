@@ -1,4 +1,5 @@
 import { createDirectus, rest, staticToken } from "@directus/sdk";
+export type { DirectusFile } from "@directus/sdk";
 import type { DirectusFile } from "@directus/sdk";
 import { env } from "@lib/sharedEnv";
 

@@ -4,6 +4,7 @@ export type CarouselState = {
   offset: number;
   increment: (carouselObject: CarouselSettings) => void;
   decrement: (carouselObject: CarouselSettings) => void;
+  reset: () => void;
 
   // optional parameters manage carousel modal state
   selection?: boolean;

@@ -5,9 +5,16 @@ import clsx from "clsx";
 
 // lib
 import useModalStore from "@lib/stores/useModalStore";
+import useCarouselStore from "@lib/stores/useCarouselStore";
 
 const ModalBg = ({ children }: PropsWithChildren) => {
   const { selection, deselect } = useModalStore();
+  const { reset } = useCarouselStore();
+
+  const handleClick = () => {
+    deselect!();
+    reset();
+  };
   return (
     <AnimatePresence>
       {selection && (
@@ -20,7 +27,7 @@ const ModalBg = ({ children }: PropsWithChildren) => {
             <div
               className={`absolute ${sharedClases} cursor-pointer`}
               aria-label="close modal"
-              onClick={() => deselect!()}
+              onClick={() => handleClick()}
             ></div>
             <>{children}</>
           </motion.div>

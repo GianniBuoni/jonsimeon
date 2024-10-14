@@ -23,6 +23,10 @@ const useModalStore = create<CarouselState>((set) => ({
     set(() => ({
       selection: false,
     })),
+  reset: () =>
+    set(() => ({
+      page: 0,
+    })),
 }));
 
 export default useModalStore;

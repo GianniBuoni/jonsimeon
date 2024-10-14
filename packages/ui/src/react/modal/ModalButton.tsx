@@ -1,0 +1,32 @@
+import useCarouselStore from "@lib/stores/useCarouselStore";
+import useModalStore from "@lib/stores/useModalStore";
+import clsx from "clsx";
+
+const ModalButton = () => {
+  const { deselect } = useModalStore();
+  const { reset } = useCarouselStore();
+
+  const handleClick = () => {
+    deselect!();
+    reset();
+  };
+
+  return (
+    <button
+      title="close"
+      aria-label="close modal"
+      className={buttonClasses}
+      onClick={() => handleClick()}
+    >
+      ×
+    </button>
+  );
+};
+
+const buttonClasses = clsx([
+  "absolute right-3 md:right-5", // position
+  "btn btn-circle text-3xl pb-1", //base
+  "scale-75 hover:scale-100 z-30", //interactivity
+]);
+
+export default ModalButton;

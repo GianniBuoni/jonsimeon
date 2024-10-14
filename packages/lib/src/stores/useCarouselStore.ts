@@ -14,6 +14,10 @@ const useCarouselStore = create<CarouselState>((set) => ({
       page: store.page == 0 ? maxLength : store.page - 1,
       offset: offset,
     })),
+  reset: () =>
+    set(() => ({
+      page: 0,
+    })),
 }));
 
 export default useCarouselStore;

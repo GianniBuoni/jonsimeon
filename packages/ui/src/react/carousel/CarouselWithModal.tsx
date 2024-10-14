@@ -13,7 +13,7 @@ const CarouselWithModal = ({ assets, projects }: ProjectContext) => {
       <ModalBg>
         <ModalCard />
       </ModalBg>
-      <CarouselCard store="modal" />
+      <CarouselCard />
     </ProjectProvider>
   );
 };
