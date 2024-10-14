@@ -8,12 +8,12 @@ import CarouselWithModal from "@ui/react/carousel/CarouselWithModal";
 
 // lib
 import type { CarouselSettings } from "@lib/stores/types";
-import { resumeProjects } from "@resume/lib/resumeProjects";
+import projects from "@resume/lib/resumeProjects";
 import { env } from "@lib/sharedEnv";
 
 const settings: CarouselSettings = {
   offset: 300,
-  maxLength: resumeProjects.length - 1,
+  maxLength: projects.length - 1,
 };
 ---
 
@@ -27,9 +27,5 @@ const settings: CarouselSettings = {
   <Card classes="mb-5 h-12">
     <CarouselControls store="modal" {settings} client:visible />
   </Card>
-  <CarouselWithModal
-    assets={env.PUBLIC_ASSETS}
-    projects={resumeProjects}
-    client:visible
-  />
+  <CarouselWithModal {projects} assets={env.PUBLIC_ASSETS} client:visible/>
 </Section>

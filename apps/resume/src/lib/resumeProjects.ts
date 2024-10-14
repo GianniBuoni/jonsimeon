@@ -1,19 +1,29 @@
-import { readSingleton, readItem } from "@directus/sdk";
+import { readSingleton } from "@directus/sdk";
 import dbClient, { type Project } from "@lib/db/directus";
 
-const resumeProjectIds = await dbClient.request(
+const resume = await dbClient.request(
   readSingleton("resume", {
-    fields: [{ projects: ["projects_id"] }],
+    fields: [
+      {
+        projects: [
+          {
+            projects_id: [
+              "id",
+              "title",
+              "subtitle",
+              "count(carousel_image)",
+              { hero_image: ["id", "description"] },
+              {
+                carousel_image: [{ directus_files_id: ["id", "description"] }],
+              },
+              { links: [{ icon_badge_id: ["icon", "href", "label"] }] },
+            ],
+          },
+        ],
+      },
+    ],
   }),
 );
 
-export const resumeProjects = (await Promise.all(
-  resumeProjectIds.projects!.map(
-    async (id) =>
-      await dbClient.request(
-        readItem("projects", id.projects_id, {
-          fields: ["*", { hero_image: ["id", "description"] }],
-        }),
-      ),
-  ),
-)) as Project[];
+const projects = resume.projects!.map((p) => p.projects_id);
+export default projects as Project[];

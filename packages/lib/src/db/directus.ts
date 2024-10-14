@@ -16,6 +16,8 @@ type Schema = {
   icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
   posts: Post[];
   projects: Project[];
+  projects_files: ProjectsFiles[];
+  projects_icon_badge: ProjectsIconBadges[];
   resume: Resume;
   resume_icon_badge: ResumeBadge[];
   resume_projects: ResumeProject[];
@@ -55,26 +57,38 @@ export type Project = {
   title: string;
   subtitle?: string;
   hero_image: DirectusFile;
-  carousel_image: DirectusFile[];
-  links: IconBadge[];
+  carousel_image: number[] | ProjectsFiles[];
+  links: number[] | ProjectsIconBadges[];
+};
+
+export type ProjectsFiles = {
+  id: number;
+  projects_id: string | Project;
+  directus_files_id: string | DirectusFile;
+};
+
+export type ProjectsIconBadges = {
+  id: number;
+  projects_id: string | Project;
+  icon_badge_id: string | IconBadge;
 };
 
 export type Resume = {
   id: string;
-  toc: ResumeBadge[];
-  projects: ResumeProject[];
+  toc: number[] | ResumeBadge[];
+  projects: number[] | ResumeProject[];
 };
 
 export type ResumeBadge = {
   id: number;
-  resume_id: Resume["id"];
-  icon_badge_id: IconBadge["id"];
+  resume_id: string | Resume;
+  icon_badge_id: string | IconBadge;
 };
 
 export type ResumeProject = {
   id: number;
-  resume_id: Resume["id"];
-  projects_id: Project["id"];
+  resume_id: string | Resume;
+  projects_id: string | Project;
 };
 
 export default dbClient;
