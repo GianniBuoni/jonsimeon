@@ -1,6 +1,11 @@
 ---
+// ui
 import MainLayout from "@ui/layouts/MainLayout.astro";
 import Footer from "@ui/astro/Footer.astro";
+
+// lib
+import { noodleFullBody } from "@lib/db/asset-queries/noodleFullBody";
+import { env } from "@lib/sharedEnv";
 
 const siteInfo = {
   title: "Let's work together!",
@@ -8,6 +13,7 @@ const siteInfo = {
     "My interactive resume featuring some projects I've worked on. I'd love to work with you!",
 };
 
+const src = env.PUBLIC_ASSETS + "/" + noodleFullBody.id + "?key=medium";
 const { title, description } = siteInfo;
 ---
 
@@ -15,5 +21,16 @@ const { title, description } = siteInfo;
   <main>
     <slot />
   </main>
-  <Footer />
+  <Footer>
+    <img
+      {src}
+      alt={noodleFullBody.description}
+      class:list={[
+        "absolute -left-32 -scale-x-100",
+        "drop-shadow-lg",
+        "invisible md:visible portrait:hidden",
+        "bottom-36 lg:bottom-48",
+      ]}
+    />
+  </Footer>
 </MainLayout>
