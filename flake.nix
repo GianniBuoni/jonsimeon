@@ -18,18 +18,26 @@
     pnf = pkgs.writeShellScriptBin "pnf" ''
       pnpm --filter @${project}/$1 $2
     '';
-    werk-werk = pkgs.writeShellScriptBin "werk-werk" ''
-      tmux split-window -h -p 25 &&
-      tmux select-pane -t 1 && nvim
+    dc = pkgs.writeShellScriptBin "dc" ''
+      if [ $1 = "up" ]; then
+        case $# in
+          2) docker compose --profile $2 up -d ;;
+          3) docker compose --profile $2 up $3 -d ;;
+          *) docker compose up -d ;;
+        esac
+      else
+        case $# in
+          2) docker compose --profile $2 $1 ;;
+          3) docker compose --profile $2 $1 $3 ;;
+          *) docker compose $1
+        esac
+      fi
     '';
   in {
     devShells.${system}.default = pkgs.mkShell {
-      packages = [nx pnf werk-werk];
+      packages = [nx pnf dc];
       shellHook = ''
-        tmux new-session -A -d -s ${project} &&
-        tmux send-keys -t ${project} 'werk-werk' Enter &&
-        tmux send -t ${project} C-l &&
-        tmux attach-session -t ${project}
+        tmux new-session -A -s ${project}
       '';
     };
   };
