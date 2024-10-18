@@ -11,7 +11,7 @@ services:
       - "../../.:/app"
     ports:
       - 4321:4321
-    command: pnpm nx run-many -t dev -p @jonsimeon/resume
+    command: pnpm nx run-many -t dev -p @jonsimeon/main
   main-run:
     container_name: jonsimeon-main
     build:

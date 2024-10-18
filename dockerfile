@@ -21,10 +21,12 @@ COPY apps/${APP_NAME}/package.json ./apps/${APP_NAME}/package.json
 
 # Copy shared code packages
 COPY packages/. ./packages/.
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-COPY apps/${APP_NAME}/ ./apps/${APP_NAME}/
 
 FROM deps AS runtime
+ENV NODE_ENV=production
+RUN astro telemetry disable
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+COPY apps/${APP_NAME}/ ./apps/${APP_NAME}/
 RUN pnpm nx run-many -t build -p @jonsimeon/${APP_NAME}
 CMD node apps/${APP_NAME}/dist/server/entry.mjs
 
