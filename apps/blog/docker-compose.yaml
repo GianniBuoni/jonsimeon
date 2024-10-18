@@ -11,7 +11,7 @@ services:
       - "../../.:/app"
     ports:
       - 4321:4321
-    command: pnpm nx run-many -t dev -p @jonsimeon/blog
+    command: pnpm nx run-many -t dev -p @jonsimeon/blog --parallel
   blog-run:
     container_name: jonsimeon-blog
     build:
