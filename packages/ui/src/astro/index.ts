@@ -1,1 +1,1 @@
-export { default as MyComponent } from "./MyComponent.astro";
+export { default as MyComponent } from "@/astro/MyComponent.astro";

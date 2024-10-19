@@ -1,3 +1,9 @@
 {
-  "extends": "@jonsimeon/ts-config"
+  "extends": "@jonsimeon/ts-config",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
