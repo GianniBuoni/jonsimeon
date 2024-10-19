@@ -1,7 +1,7 @@
 import { createDirectus, rest, staticToken } from "@directus/sdk";
 export type { DirectusFile } from "@directus/sdk";
 import type { DirectusFile } from "@directus/sdk";
-import { env } from "@lib/sharedEnv";
+import { env } from "../sharedEnv";
 import type { Post } from "./schemas/post";
 import type * as Project from "./schemas/projects";
 import type * as Resume from "./schemas/resume";

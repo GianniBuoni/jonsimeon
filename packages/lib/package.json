@@ -1,7 +1,10 @@
 {
   "name": "@jonsimeon/lib",
   "version": "1.0.0",
-  "license": "ISC",
+  "exports": {
+    "./db": "./src/db/index.ts",
+    "./env": "./src/index.ts"
+  },
   "devDependencies": {
     "@jonsimeon/ts-config": "workspace:^",
     "@types/node": "^22.7.4"

@@ -1,5 +1,5 @@
 import { readItems } from "@directus/sdk";
-import dbClient from "@lib/db/directus";
+import dbClient from "../directus";
 
 const request = await dbClient.request(
   readItems("site_assets", {

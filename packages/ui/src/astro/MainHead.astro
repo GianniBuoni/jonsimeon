@@ -1,7 +1,7 @@
 ---
 import "@fontsource-variable/chivo";
 import "@fontsource/paytone-one";
-import "../../dist/index.css";
+import favicon from "./favicon.svg";
 
 interface Props {
   title: string;
@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href={favicon.src} />
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>

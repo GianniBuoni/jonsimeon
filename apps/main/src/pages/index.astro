@@ -1,6 +1,6 @@
 ---
-import SiteMessage from "@ui/astro/SiteMessage.astro";
-import Link from "@ui/react/Link";
+import { SiteMessage, favicon } from "@jonsimeon/ui/astro";
+import { Link } from "@jonsimeon/ui/react";
 
 const title = "Illustration & Design";
 const description = "My portfolio of my iullustration and design work.";
@@ -16,10 +16,10 @@ const blog = "https://blog.jonsimeon.com";
     <span class="flex items-center gap-3">
       are on their way!
       <img
-        class="portrait:hidden pt-3"
+        class="portrait:hidden pt-2"
         width="32"
         height="32"
-        src="/favicon.svg"
+        src={favicon.src}
       />
     </span>
   </Fragment>
