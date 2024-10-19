@@ -1,0 +1,30 @@
+services:
+  main-dev:
+    container_name: main-dev
+    build:
+      context: ../../
+      target: base
+      args:
+        APP_NAME: main
+    profiles: ["main", "dev"]
+    networks:
+      - astro
+    command: pnpm turbo dev --filter=@jonsimeon/main
+    volumes:
+      - "../../:/app"
+    ports:
+      - 4321:4321
+  main:
+    container_name: main-runtime
+    build:
+      context: ../../
+      target: runtime
+      args:
+        APP_NAME: main
+    profiles: ["runtime"]
+    networks:
+      - astro
+networks:
+  astro:
+    external: true
+    name: astro
