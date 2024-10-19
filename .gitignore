@@ -29,9 +29,8 @@ yarn-error.log*
 .DS_Store
 *.pem
 
-# NX Monorepo
-.nx/cache
-.nx/workspace-data
+# Monorepo
+.turbo
 
 # Dotenv vault
 
