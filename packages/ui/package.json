@@ -9,10 +9,7 @@
   "keywords": [
     "astro-component"
   ],
-  "scripts": {
-    "dev": "tailwind -i ./style.css -o ./dist/index.css --watch",
-    "build": "tailwind -i ./style.css -o ./dist/index.css"
-  },
+  "scripts": {},
   "devDependencies": {
     "astro": "^4.16.6"
   },

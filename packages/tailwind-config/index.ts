@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
 import * as defaultTheme from "tailwindcss/defaultTheme";
 
-export const sharedConfig: Omit<Config, "content"> = {
+const sharedConfig = {
+  content: ["./src/**/*.{astro,tsx}", "../../packages/ui/src/**/*.{astro,tsx}"],
   theme: {
     extend: {
       boxShadow: {
@@ -24,4 +25,6 @@ export const sharedConfig: Omit<Config, "content"> = {
       },
     ],
   },
-};
+} satisfies Config;
+
+export default sharedConfig;

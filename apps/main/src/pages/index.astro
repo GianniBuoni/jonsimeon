@@ -1,6 +1,5 @@
 ---
 import { MyComponent } from "@jonsimeon/ui/astro";
-import "@jonsimeon/ui";
 ---
 
 <html lang="en">
@@ -10,9 +9,9 @@ import "@jonsimeon/ui";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro</title>
-    <MyComponent prefix="EX" />
   </head>
   <body>
-    <h1>Astro</h1>
+    <h1 class="text-3xl">Astro</h1>
+    <MyComponent prefix="EX" />
   </body>
 </html>
