@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@t3-oss/env-core':
-        specifier: ^0.11.1
-        version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
       astro:
         specifier: ^4.15.12
         version: 4.16.6(@types/node@22.7.7)(typescript@5.6.3)
@@ -36,6 +33,9 @@ importers:
       '@fontsource/paytone-one':
         specifier: ^5.1.0
         version: 5.1.0
+      '@t3-oss/env-core':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
       '@types/node':
         specifier: ^22.7.6
         version: 22.7.7
@@ -1520,7 +1520,7 @@ packages:
     dependencies:
       typescript: 5.6.3
       zod: 3.23.8
-    dev: false
+    dev: true
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -5386,7 +5386,6 @@ packages:
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-    dev: false
 
   /zustand@5.0.0-rc.2(@types/react@18.3.11)(react@18.3.1):
     resolution: {integrity: sha512-o2Nwuvnk8vQBX7CcHL8WfFkZNJdxB/VKeWw0tNglw8p4cypsZ3tRT7rTRTDNeUPFS0qaMBRSKe+fVwL5xpcE3A==}

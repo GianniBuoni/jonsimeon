@@ -8,3 +8,8 @@ packages/**/node_modules
 .git
 .gitignore
 .env
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
