@@ -1,8 +1,12 @@
 ---
 // Write your component code in this file!
+import AnotherTest from "./AnotherTest.astro";
 interface Props {
   prefix?: string;
 }
+
+const propprop = "You did it!";
 ---
 
 <div class="text-accent">{Astro.props.prefix} My pretty special component</div>
+<AnotherTest {propprop} />
