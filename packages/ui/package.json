@@ -1,16 +1,9 @@
 {
   "name": "@jonsimeon/ui",
   "version": "1.0.0",
-  "license": "ISC",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": "./dist/index.css"
-  },
+  "exports": {},
   "scripts": {
-    "dev": "astro sync & tailwindcss -i ./src/styles.css -o ./dist/index.css --watch &",
-    "build": "astro sync && tailwindcss -i ./src/styles.css -o ./dist/index.css"
+    "build": "astro sync"
   },
   "dependencies": {
     "@iconify/react": "^5.0.2",
