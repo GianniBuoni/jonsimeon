@@ -13,7 +13,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
     project = "jonsimeon";
     tb = pkgs.writeShellScriptBin "tb" ''
-      pnpm turbo dev @${project}/$2
+      pnpm turbo $1 --filter=@${project}/$2
     '';
     pnf = pkgs.writeShellScriptBin "pnf" ''
       pnpm --filter @${project}/$1 $2
