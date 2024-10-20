@@ -26,7 +26,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
 
   const copyClasses = clsx([
     "bg-neutral z-20 overflow-scroll", // base
-    "py-5 px-2 sm:px-7 lg:pl-0 lg:pr-10", // padding
+    "py-5 px-2 sm:px-7 lg:pl-3 lg:pr-10", // padding
     "gap-5 flex flex-col justify-between",
     classes,
   ]);
