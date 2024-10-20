@@ -8,7 +8,7 @@
     "./stores": "./src/stores/index.ts"
   },
   "imports": {
-    "#*": "./src/*"
+    "#*": "./src/*.ts"
   },
   "devDependencies": {
     "@jonsimeon/ts-config": "workspace:^",

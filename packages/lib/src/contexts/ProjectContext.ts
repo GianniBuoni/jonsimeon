@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { Project } from "#db/schemas/projects.ts";
+import type { Project } from "#db/schemas/projects";
 
 export type ProjectContext = {
   assets: string;

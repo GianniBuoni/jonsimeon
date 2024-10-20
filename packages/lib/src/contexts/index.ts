@@ -1,3 +1,3 @@
-export { AccordionContext } from "#contexts/AccordionContext.ts";
-export { ProjectContext } from "#contexts/ProjectContext.ts";
-export { default as ProjectProvider } from "#contexts/ProjectProvider.tsx";
+export { AccordionContext } from "#contexts/AccordionContext";
+export { ProjectContext } from "#contexts/ProjectContext";
+export { default as ProjectProvider } from "./ProjectProvider";
