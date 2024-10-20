@@ -15,7 +15,7 @@ services:
     ports:
       - 4321:4321
   resume:
-    container_name: resume-runtime
+    container_name: jonsimeon-resume
     build:
       context: ../../
       target: runtime

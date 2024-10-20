@@ -15,7 +15,7 @@ services:
     ports:
       - 4321:4321
   main:
-    container_name: main-runtime
+    container_name: jonsimeon-main
     build:
       context: ../../
       target: runtime
