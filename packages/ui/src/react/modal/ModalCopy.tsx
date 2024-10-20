@@ -25,9 +25,9 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
   const links = linkIds.map((id) => id.icon_badge_id) as IconBadge[];
 
   const copyClasses = clsx([
-    "bg-neutral z-20", // base
-    "overflow-scroll",
-    "card-body flex flex-col justify-between",
+    "bg-neutral z-20 overflow-scroll", // base
+    "py-5 px-2 sm:px-7 lg:pl-0 lg:pr-10", // padding
+    "gap-5 flex flex-col justify-between",
     classes,
   ]);
 
@@ -49,7 +49,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
             </small>
           )}
         </div>
-        <Markdown className="flex flex-col gap-3 lg:w-11/12">
+        <Markdown className="flex flex-col gap-3">
           {currentProject.body}
         </Markdown>
       </div>
