@@ -1,7 +1,7 @@
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
-import Heading from "#react/Heading.tsx";
+import Heading from "#react/Heading";
 
 interface Props {
   first: string;

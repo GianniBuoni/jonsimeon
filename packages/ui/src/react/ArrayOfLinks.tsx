@@ -1,7 +1,7 @@
 // ui
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Heading from "#react/Heading.tsx";
-import Badge from "#react/Badge.tsx";
+import Heading from "#react/Heading";
+import Badge from "#react/Badge";
 
 // lib
 import type { IconBadge } from "@jonsimeon/lib/db";

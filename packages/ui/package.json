@@ -8,8 +8,11 @@
   },
   "imports": {
     "#*": "./src/*",
-    "#carousel/*": "./src/react/carousel/*",
-    "#modal/*": "./src/react/modal/*"
+    "#astro/*": "./src/astro/*.astro",
+    "#layouts/*": "./src/layouts/*.astro",
+    "#react/*": "./src/react/*.tsx",
+    "#carousel/*": "./src/react/carousel/*.tsx",
+    "#modal/*": "./src/react/modal/*.tsx"
   },
   "scripts": {
     "build": "astro sync"

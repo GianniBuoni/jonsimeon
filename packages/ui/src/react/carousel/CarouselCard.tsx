@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 // component
-import Card from "#react/Card.tsx";
+import Card from "#react/Card";
 
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";

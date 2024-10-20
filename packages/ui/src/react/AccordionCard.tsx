@@ -7,8 +7,8 @@ import { useAccordionStore } from "@jonsimeon/lib/stores";
 import type { AccordionContext } from "@jonsimeon/lib/contexts";
 
 // ui
-import Card from "#react/Card.tsx";
-import Heading from "#react/Heading.tsx";
+import Card from "#react/Card";
+import Heading from "#react/Heading";
 import Markdown from "react-markdown";
 
 interface Props {

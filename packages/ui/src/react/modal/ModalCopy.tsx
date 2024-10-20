@@ -4,8 +4,8 @@ import Markdown from "react-markdown";
 import clsx from "clsx";
 
 // ui
-import Heading from "#react/Heading.tsx";
-import ArrayOfLinks from "#react/ArrayOfLinks.tsx";
+import Heading from "#react/Heading";
+import ArrayOfLinks from "#react/ArrayOfLinks";
 
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";

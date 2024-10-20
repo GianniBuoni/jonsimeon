@@ -1,14 +1,14 @@
 // carousel
-export { default as Carousel } from "#carousel/Carousel.tsx";
-export { default as CarouselCard } from "#carousel/CarouselCard.tsx";
-export { default as CarouselControls } from "#carousel/CarouselControls.tsx";
-export { default as CarouselWithModal } from "#carousel/CarouselWithModal.tsx";
+export { default as Carousel } from "#carousel/Carousel";
+export { default as CarouselCard } from "#carousel/CarouselCard";
+export { default as CarouselControls } from "#carousel/CarouselControls";
+export { default as CarouselWithModal } from "#carousel/CarouselWithModal";
 
 // modal
-export { default as ModalBg } from "#modal/ModalBg.tsx";
-export { default as ModalButton } from "#modal/ModalButton.tsx";
-export { default as ModalCard } from "#modal/ModalCard.tsx";
-export { default as ModalCopy } from "#modal/ModalCopy.tsx";
+export { default as ModalBg } from "#modal/ModalBg";
+export { default as ModalButton } from "#modal/ModalButton";
+export { default as ModalCard } from "#modal/ModalCard";
+export { default as ModalCopy } from "#modal/ModalCopy";
 
 export { default as AccordionCard } from "./AccordionCard";
 export { default as ArrayOfLinks } from "./ArrayOfLinks";

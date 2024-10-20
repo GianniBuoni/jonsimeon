@@ -4,11 +4,11 @@ import { useContext } from "react";
 import clsx from "clsx";
 
 // components
-import Card from "#react/Card.tsx";
-import Carousel from "#react/carousel/Carousel.tsx";
-import CarouselControls from "#react/carousel/CarouselControls.tsx";
-import ModalButton from "#react/modal/ModalButton.tsx";
-import ModalCopy from "#react/modal/ModalCopy.tsx";
+import Card from "#react/Card";
+import Carousel from "#react/carousel/Carousel";
+import CarouselControls from "#react/carousel/CarouselControls";
+import ModalButton from "#react/modal/ModalButton";
+import ModalCopy from "#react/modal/ModalCopy";
 
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";
