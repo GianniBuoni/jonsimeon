@@ -23,7 +23,7 @@ const ModalCard = () => {
     <AnimatePresence>
       <MotionCard layoutId={`modal-${project.id}`} classes={cardClasses}>
         <ModalButton />
-        <div className="row-span-3 md:row-span-1 col-span-5 flex flex-col gap-5 p-1">
+        <div className={carouselClasses}>
           <Carousel />
           <CarouselControls
             store="carousel"
@@ -33,20 +33,32 @@ const ModalCard = () => {
             }}
           />
         </div>
-        <ModalCopy classes="col-span-4 md:row-span-1 bg-neutral z-20" />
+        <ModalCopy classes={copyClasses} />
       </MotionCard>
     </AnimatePresence>
   );
 };
 
 const cardClasses = clsx([
-  "w-full lg:max-w-screen-lg xl:w-screen-md", // width
-  "h-[90vh] lg:h-[75vh] overflow-scroll", // height
-  "lg:mb-5",
+  "portrait:max-w-xl portrait:sm:max-w-lg lg:max-w-screen-lg xl:w-screen-md", // width
+  "h-[85vh] md:max-h-[35rem] 2xl:h-[50vh] overflow-hidden", // height
+  "mb-16 md:mb-5",
   "z-30",
-  "grid grid-rows-7 md:grid-rows-1", // rows breakpoint
-  "md:grid-cols-9 gap-10 md:gap-12", //  columns breakpoint
+  "grid grid-rows-7 landscape:grid-rows-1", // rows breakpoint
+  "landscape:grid-cols-9 gap-5 lg:gap-10", //  columns breakpoint
+  "overflow-hidden",
 ]);
+
+const carouselClasses = clsx([
+  "flex flex-col gap-5 p-1", // base
+  "row-span-3 portrait:sm:row-span-4 lg:row-span-1", //rows breakpoint
+  "landscape:col-span-4 landscape:lg:col-span-5", // columns breakpoint
+]);
+const copyClasses = clsx([
+  "row-span-4 portrait:sm:row-span-3 lg:row-span-1",
+  "landscape:col-span-5 landscape:lg:col-span-4", // columns breakpoint
+]);
+
 const MotionCard = motion.create(Card);
 
 export default ModalCard;
