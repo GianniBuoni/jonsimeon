@@ -1,0 +1,30 @@
+services:
+  resume-dev:
+    container_name: resume-dev
+    build:
+      context: ../../
+      target: base
+      args:
+        APP_NAME: resume
+    profiles: ["resume", "dev"]
+    networks:
+      - astro
+    command: pnpm turbo dev --filter=@jonsimeon/resume
+    volumes:
+      - "../../:/app"
+    ports:
+      - 4321:4321
+  resume:
+    container_name: resume-runtime
+    build:
+      context: ../../
+      target: runtime
+      args:
+        APP_NAME: resume
+    profiles: ["runtime"]
+    networks:
+      - astro
+networks:
+  astro:
+    external: true
+    name: astro

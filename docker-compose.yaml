@@ -1,2 +1,3 @@
 include:
   - ./apps/main/docker-compose.yaml
+  - ./apps/resume/docker-compose.yaml

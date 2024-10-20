@@ -9,6 +9,10 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "imports": {
+    "#*": "./src/*.astro",
+    "#lib/*": "./src/lib/*.ts"
+  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^8.3.4",

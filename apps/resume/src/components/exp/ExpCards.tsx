@@ -1,12 +1,11 @@
 // lib
-import { AccordionContext } from "@lib/contexts/AccordionContext";
-import type { Experience, ExpsIconBadges } from "@lib/db/schemas/experience";
+import { AccordionContext } from "@jonsimeon/lib/contexts";
+import type { Experience, ExpsIconBadges, IconBadge } from "@jonsimeon/lib/db";
 
 // ui
 import { Icon } from "@iconify/react";
-import AccordionCard from "@ui/react/accordion/AccordionCard";
-import Badge from "@ui/react/Badge";
-import type { IconBadge } from "@lib/db/directus";
+import { AccordionCard } from "@jonsimeon/ui/react";
+import { Badge } from "@jonsimeon/ui/react";
 
 interface Props {
   exps: Experience[];

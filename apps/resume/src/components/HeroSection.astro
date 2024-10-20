@@ -1,13 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import Section from "@ui/react/Section";
-import HeroGreeting from "@ui/react/HeroGreeting";
-import Logo from "@ui/react/Logo";
-import HeroBg from "@ui/react/HeroBg";
+import { Section } from "@jonsimeon/ui/react";
+import { HeroGreeting } from "@jonsimeon/ui/react";
+import { Logo } from "@jonsimeon/ui/react";
+import { HeroBg } from "@jonsimeon/ui/react";
 
-import { env } from "@lib/sharedEnv";
-import { heroImage } from "@lib/db/asset-queries/heroImage";
+import { env } from "@jonsimeon/lib/env";
+import { heroImage } from "@jonsimeon/lib/db";
 const imgSrc = env.PUBLIC_ASSETS + "/" + heroImage.id;
 ---
 

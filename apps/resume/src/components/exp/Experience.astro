@@ -1,11 +1,11 @@
 ---
-import Heading from "@ui/react/Heading";
-import Section from "@ui/react/Section";
+import { Heading } from "@jonsimeon/ui/react";
+import { Section } from "@jonsimeon/ui/react";
 
 // lib
-import dbClient from "@lib/db/directus";
 import { readItems } from "@directus/sdk";
-import type { Experience } from "@lib/db/schemas/experience";
+import { dbClient } from "@jonsimeon/lib/db";
+import type { Experience } from "@jonsimeon/lib/db";
 import ExpCards from "./ExpCards";
 
 const allExp = (await dbClient.request(

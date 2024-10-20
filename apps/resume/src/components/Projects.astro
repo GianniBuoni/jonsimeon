@@ -1,15 +1,15 @@
 ---
 //components
-import Section from "@ui/react/Section";
-import Heading from "@ui/react/Heading";
-import CarouselControls from "@ui/react/carousel/CarouselControls";
-import Card from "@ui/react/Card";
-import CarouselWithModal from "@ui/react/carousel/CarouselWithModal";
+import { Section } from "@jonsimeon/ui/react";
+import { Heading } from "@jonsimeon/ui/react";
+import { CarouselControls } from "@jonsimeon/ui/react";
+import { Card } from "@jonsimeon/ui/react";
+import { CarouselWithModal } from "@jonsimeon/ui/react";
 
 // lib
-import type { CarouselSettings } from "@lib/stores/types";
-import projects from "@resume/lib/resumeProjects";
-import { env } from "@lib/sharedEnv";
+import projects from "#lib/resumeProjects";
+import type { CarouselSettings } from "@jonsimeon/lib/stores";
+import { env } from "@jonsimeon/lib/env";
 
 const settings: CarouselSettings = {
   offset: 300,
@@ -27,5 +27,5 @@ const settings: CarouselSettings = {
   <Card classes="mb-5 h-12 flex justify-center">
     <CarouselControls store="modal" {settings} client:visible />
   </Card>
-  <CarouselWithModal {projects} assets={env.PUBLIC_ASSETS} client:visible/>
+  <CarouselWithModal {projects} assets={env.PUBLIC_ASSETS} client:visible />
 </Section>

@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
-import Card from "@ui/react/Card";
-import Heading from "@ui/react/Heading";
-import Badge from "@ui/react/Badge";
+import { Card } from "@jonsimeon/ui/react";
+import { Heading } from "@jonsimeon/ui/react";
+import { Badge } from "@jonsimeon/ui/react";
 
 //lib
-import dbClient from "@lib/db/directus";
+import { dbClient } from "@jonsimeon/lib/db";
 import { readSingleton } from "@directus/sdk";
 
 const resume = await dbClient.request(
