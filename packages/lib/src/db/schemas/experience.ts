@@ -1,4 +1,4 @@
-import type { IconBadge } from "@lib/db/directus";
+import type { IconBadge } from "#db/directus.ts";
 
 export type Experience = {
   title: string;

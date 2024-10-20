@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "exports": {
     "./db": "./src/db/index.ts",
-    "./env": "./src/index.ts"
+    "./contexts": "./src/contexts/index.ts",
+    "./env": "./src/sharedEnv.ts",
+    "./stores": "./src/stores/index.ts"
+  },
+  "imports": {
+    "#*": "./src/*"
   },
   "devDependencies": {
     "@jonsimeon/ts-config": "workspace:^",

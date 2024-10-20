@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectContext } from "@lib/contexts/ProjectContext";
+import { ProjectContext } from "#contexts/ProjectContext.ts";
 
 interface Props extends ProjectContext {
   children: React.ReactNode;

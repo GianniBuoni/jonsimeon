@@ -1,5 +1,5 @@
 import type { DirectusFile } from "@directus/sdk";
-import type { IconBadge } from "@lib/db/directus";
+import type { IconBadge } from "#db/directus.ts";
 
 export type Project = {
   id: string;

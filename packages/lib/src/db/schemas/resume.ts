@@ -1,5 +1,5 @@
-import type { IconBadge } from "@lib/db/directus";
-import type { Project } from "@lib/db/schemas/projects";
+import type { IconBadge } from "#db/directus.ts";
+import type { Project } from "#db/schemas/projects.ts";
 
 export type Resume = {
   id: string;

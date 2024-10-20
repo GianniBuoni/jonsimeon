@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { CarouselState } from "@lib/stores/types";
+import type { CarouselState } from "#stores/types.ts";
 
 const useModalStore = create<CarouselState>((set) => ({
   page: 0,
