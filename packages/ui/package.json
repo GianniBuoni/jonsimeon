@@ -6,6 +6,11 @@
     "./layouts": "./src/layouts/index.ts",
     "./react": "./src/react/index.ts"
   },
+  "imports": {
+    "#*": "./src/*",
+    "#carousel/*": "./src/react/carousel/*",
+    "#modal/*": "./src/react/modal/*"
+  },
   "scripts": {
     "build": "astro sync"
   },

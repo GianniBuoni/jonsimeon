@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 
 // lib
-import useModalStore from "@lib/stores/useModalStore";
-import useCarouselStore from "@lib/stores/useCarouselStore";
+import { useModalStore } from "@jonsimeon/lib/stores";
+import { useCarouselStore } from "@jonsimeon/lib/stores";
 
 const ModalBg = ({ children }: PropsWithChildren) => {
   const { selection, deselect } = useModalStore();

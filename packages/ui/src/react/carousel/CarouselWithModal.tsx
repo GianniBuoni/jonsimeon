@@ -1,11 +1,11 @@
 // lib
-import type { ProjectContext } from "@lib/contexts/ProjectContext";
-import ProjectProvider from "@lib/contexts/ProjectProvider";
+import type { ProjectContext } from "@jonsimeon/lib/contexts";
+import { ProjectProvider } from "@jonsimeon/lib/contexts";
 
 // components
-import CarouselCard from "@ui/react/carousel/CarouselCard";
-import ModalCard from "@ui/react/modal/ModalCard";
-import ModalBg from "@ui/react/modal/ModalBg";
+import CarouselCard from "#react/carousel/CarouselCard.tsx";
+import ModalCard from "#react/modal/ModalCard.tsx";
+import ModalBg from "#react/modal/ModalBg.tsx";
 
 const CarouselWithModal = ({ assets, projects }: ProjectContext) => {
   return (

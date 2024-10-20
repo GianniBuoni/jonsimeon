@@ -4,14 +4,13 @@ import Markdown from "react-markdown";
 import clsx from "clsx";
 
 // ui
-import Heading from "@ui/react/Heading";
-import ArrayOfLinks from "@ui/react/ArrayOfLinks";
+import Heading from "#react/Heading.tsx";
+import ArrayOfLinks from "#react/ArrayOfLinks.tsx";
 
 // lib
-import useModalStore from "@lib/stores/useModalStore";
-import { ProjectContext } from "@lib/contexts/ProjectContext";
-import type { IconBadge } from "@lib/db/directus";
-import type { ProjectsIconBadges } from "@lib/db/schemas/projects";
+import { useModalStore } from "@jonsimeon/lib/stores";
+import { ProjectContext } from "@jonsimeon/lib/contexts";
+import type { IconBadge, ProjectsIconBadges } from "@jonsimeon/lib/db";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   classes?: string;

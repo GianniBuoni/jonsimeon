@@ -1,10 +1,10 @@
 // ui
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Heading from "@ui/react/Heading";
-import Badge from "@ui/react/Badge";
+import Heading from "#react/Heading.tsx";
+import Badge from "#react/Badge.tsx";
 
 // lib
-import type { IconBadge } from "@lib/db/directus";
+import type { IconBadge } from "@jonsimeon/lib/db";
 
 interface Props {
   links: IconBadge[];

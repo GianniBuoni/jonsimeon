@@ -1,9 +1,9 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 
-import useCarouselStore from "@lib/stores/useCarouselStore";
-import useModalStore from "@lib/stores/useModalStore";
-import type { CarouselSettings } from "@lib/stores/types";
+import { useCarouselStore } from "@jonsimeon/lib/stores";
+import { useModalStore } from "@jonsimeon/lib/stores";
+import type { CarouselSettings } from "@jonsimeon/lib/stores";
 
 interface Props {
   store: "carousel" | "modal";

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-
-import { ProjectContext } from "@lib/contexts/ProjectContext";
-import useCarouselStore from "@lib/stores/useCarouselStore";
-import useModalStore from "@lib/stores/useModalStore";
-import type { DirectusFile, ProjectsFiles } from "@lib/db/directus";
 import clsx from "clsx";
+
+import { ProjectContext } from "@jonsimeon/lib/contexts";
+import type { DirectusFile, ProjectsFiles } from "@jonsimeon/lib/db";
+import { useCarouselStore } from "@jonsimeon/lib/stores";
+import { useModalStore } from "@jonsimeon/lib/stores";
 
 const Carousel = () => {
   const { assets, projects } = useContext(ProjectContext);

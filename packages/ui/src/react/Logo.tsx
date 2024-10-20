@@ -1,5 +1,5 @@
-import Heading from "@ui/react/Heading";
-import Link from "@ui/react/Link";
+import Heading from "#react/Heading.tsx";
+import Link from "#react/Link.tsx";
 
 const heading = "Jon Simeon";
 const baseUrl = import.meta.env.BASE_URL;

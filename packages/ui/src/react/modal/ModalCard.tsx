@@ -4,15 +4,15 @@ import { useContext } from "react";
 import clsx from "clsx";
 
 // components
-import Card from "@ui/react/Card";
-import Carousel from "@ui/react/carousel/Carousel";
-import CarouselControls from "@ui/react/carousel/CarouselControls";
-import ModalButton from "@ui/react/modal/ModalButton";
-import ModalCopy from "@ui/react/modal/ModalCopy";
+import Card from "#react/Card.tsx";
+import Carousel from "#react/carousel/Carousel.tsx";
+import CarouselControls from "#react/carousel/CarouselControls.tsx";
+import ModalButton from "#react/modal/ModalButton.tsx";
+import ModalCopy from "#react/modal/ModalCopy.tsx";
 
 // lib
-import useModalStore from "@lib/stores/useModalStore";
-import { ProjectContext } from "@lib/contexts/ProjectContext";
+import { useModalStore } from "@jonsimeon/lib/stores";
+import { ProjectContext } from "@jonsimeon/lib/contexts";
 
 const ModalCard = () => {
   const { projects } = useContext(ProjectContext);

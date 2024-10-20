@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import clsx from "clsx";
 
 // lib
-import useAccordionStore from "@lib/stores/useAccordionStore";
-import type { AccordionContext } from "@lib/contexts/AccordionContext";
+import { useAccordionStore } from "@jonsimeon/lib/stores";
+import type { AccordionContext } from "@jonsimeon/lib/contexts";
 
 // ui
-import Card from "@ui/react/Card";
-import Heading from "@ui/react/Heading";
+import Card from "#react/Card.tsx";
+import Heading from "#react/Heading.tsx";
 import Markdown from "react-markdown";
 
 interface Props {

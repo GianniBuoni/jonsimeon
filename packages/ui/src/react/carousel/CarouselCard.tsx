@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
 
 // component
-import Card from "@ui/react/Card";
+import Card from "#react/Card.tsx";
 
 // lib
-import useModalStore from "@lib/stores/useModalStore";
-import clsx from "clsx";
-import { useContext } from "react";
-import { ProjectContext } from "@lib/contexts/ProjectContext";
+import { useModalStore } from "@jonsimeon/lib/stores";
+import { ProjectContext } from "@jonsimeon/lib/contexts";
 
 const CarouselCard = () => {
   const { assets, projects } = useContext(ProjectContext);

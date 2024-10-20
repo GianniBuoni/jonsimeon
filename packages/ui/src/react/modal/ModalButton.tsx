@@ -1,5 +1,5 @@
-import useCarouselStore from "@lib/stores/useCarouselStore";
-import useModalStore from "@lib/stores/useModalStore";
+import { useCarouselStore } from "@jonsimeon/lib/stores";
+import { useModalStore } from "@jonsimeon/lib/stores";
 import clsx from "clsx";
 
 const ModalButton = () => {

@@ -16,4 +16,9 @@ export type {
   ProjectsIconBadges,
 } from "#db/schemas/projects.ts";
 export type { Resume, ResumeBadge, ResumeProject } from "#db/schemas/resume.ts";
-export type { SiteAsset, IconTag, IconBadge } from "#db/directus.ts";
+export type {
+  SiteAsset,
+  IconTag,
+  IconBadge,
+  DirectusFile,
+} from "#db/directus.ts";

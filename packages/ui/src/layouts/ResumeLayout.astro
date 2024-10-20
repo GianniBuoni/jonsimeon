@@ -1,11 +1,11 @@
 ---
 // ui
-import MainLayout from "@ui/layouts/MainLayout.astro";
-import Footer from "@ui/astro/Footer.astro";
+import MainLayout from "#layouts/MainLayout.astro";
+import Footer from "#astro/Footer.astro";
 
 // lib
-import { noodleFullBody } from "@lib/db/asset-queries/noodleFullBody";
-import { env } from "@lib/sharedEnv";
+import { noodleFullBody } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
 
 const siteInfo = {
   title: "Let's work together!",
