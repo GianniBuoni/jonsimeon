@@ -19,12 +19,9 @@ const imgSrc = env.PUBLIC_ASSETS + "/" + heroImage.id;
 >
   <HeroBg {imgSrc} client:load />
   <Logo />
-  <HeroGreeting
-    first="Hello!"
-    second={`Let's work\ntogether!`}
-    final="Get to know me! Scroll down to see what I've been up to."
-    client:visible
-  />
+  <HeroGreeting first="Hello!" second={`Let's work\ntogether!`} client:visible
+    ><p>Get to know me! Scroll down to see what I've been up to.</p>
+  </HeroGreeting>
   <a href="#resume" class="z-20">
     <Icon
       name="mdi:arrow-down-circle"

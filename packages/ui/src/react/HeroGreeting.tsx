@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 
@@ -6,10 +7,14 @@ import Heading from "#react/Heading";
 interface Props {
   first: string;
   second?: string;
-  final: string;
+  cursor?: boolean;
+  children?: ReactNode;
 }
 
-const Greeting = ({ first, second, final }: Props) => {
+const Greeting = ({ first, second, cursor = true, children }: Props) => {
+  let animationArray: any[] = [first];
+  second ? animationArray.push(1000, second) : animationArray;
+
   return (
     <div className="grow flex items-center z-20">
       <div>
@@ -20,18 +25,18 @@ const Greeting = ({ first, second, final }: Props) => {
         >
           <TypeAnimation
             style={{ whiteSpace: "pre-line" }}
-            sequence={[first, 1000, `${second && second}`]}
+            sequence={animationArray}
             wrapper="span"
-            cursor={true}
+            cursor={cursor}
           />
         </Heading>
-        <motion.p
+        <motion.div
           className="lg:text-xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 3 } }}
         >
-          {final}
-        </motion.p>
+          {children}
+        </motion.div>
       </div>
     </div>
   );

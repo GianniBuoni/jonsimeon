@@ -1,5 +1,6 @@
 ---
 import SiteMessage from "#astro/SiteMessage";
+import Heading from "#react/Heading";
 import Link from "#react/Link";
 
 const home = "/";
@@ -9,7 +10,7 @@ const description = "404, page not found. Go back to homepage?";
 ---
 
 <SiteMessage {title} {description}>
-  <Fragment slot="heading">Whoops!</Fragment>
+  <Heading tagName="h1" size="h1">Whoops!</Heading>
   <div>
     <p>We seem to be lost.</p>
     <p>Let's go back <Link href={home}>home</Link>, shall we?</p>

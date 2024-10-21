@@ -1,38 +1,26 @@
 ---
-import { SiteMessage, favicon } from "@jonsimeon/ui/astro";
-import { Link } from "@jonsimeon/ui/react";
+import { SiteMessage } from "@jonsimeon/ui/astro";
+import { Link, HeroGreeting } from "@jonsimeon/ui/react";
 
 const title = "Illustration & Design";
 const description = "My portfolio of my iullustration and design work.";
 
 const baseUrl = import.meta.env.BASE_URL;
 const resume = "https://resume.jonsimeon.com";
-const blog = "https://blog.jonsimeon.com";
 ---
 
 <SiteMessage {title} {description}>
-  <Fragment slot="heading">
-    <span>Fun things</span><br />
-    <span class="flex items-center gap-3">
-      are on their way!
-      <img
-        class="portrait:hidden pt-2"
-        width="32"
-        height="32"
-        src={favicon.src}
-      />
-    </span>
-  </Fragment>
-  <div class="flex flex-col gap-2">
-    <p>
-      I'm working on rebuilding &nbsp;<Link href={baseUrl}>jonsimeon.com</Link>.
-    </p>
-    <p>
-      In the meanwhile, check out my <Link href={resume}>resume</Link>
-      <!-- NOT YEY READY
-      and my <Link href={blog}>blog</Link>
-      -->
-      !
-    </p>
+  <div class="max-w-screen-md landscape:pl-10">
+    <HeroGreeting
+      first={`Fun things are on their way!`}
+      cursor={false}
+      client:load
+    >
+      <p>
+        I'm working on rebuilding &nbsp;
+        <Link href={baseUrl}>jonsimeon.com</Link>.
+      </p>
+      <p>In the meanwhile, check out my <Link href={resume}>resume</Link>!</p>
+    </HeroGreeting>
   </div>
 </SiteMessage>
