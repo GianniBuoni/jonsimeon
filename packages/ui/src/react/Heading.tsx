@@ -21,7 +21,7 @@ const Heading = (
   const Tag = tagName;
   return (
     <Tag
-      className={`font-bold font-display ${tagSizes[size]} ${addMargin ? "mb-8" : "mb-1"} ${classes}`}
+      className={`font-display ${tagSizes[size]} ${addMargin ? "mb-8" : "mb-1"} ${classes}`}
       {...rest}
       ref={ref}
     >

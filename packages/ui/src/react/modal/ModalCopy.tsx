@@ -26,34 +26,35 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
 
   const copyClasses = clsx([
     "bg-neutral z-20 overflow-scroll", // base
-    "py-5 px-2 sm:px-7 lg:pl-3 lg:pr-10", // padding
-    "gap-5 flex flex-col justify-between",
+    "card-body", // padding
     classes,
   ]);
 
   return (
     <div className={copyClasses} {...rest}>
-      <div>
-        <div className="mb-5">
-          <Heading
-            tagName="h2"
-            size="h1"
-            addMargin={false}
-            classes="tracking-wide text-accent mb-3"
-          >
-            {currentProject.title}
-          </Heading>
-          {currentProject.subtitle && (
-            <small>
-              <em>{currentProject.subtitle}</em>
-            </small>
-          )}
+      <div className="sm:p-5 md:p-2 gap-5 h-full flex flex-col justify-between">
+        <div>
+          <div className="mb-5">
+            <Heading
+              tagName="h2"
+              size="h1"
+              addMargin={false}
+              classes="tracking-wide text-accent mb-3"
+            >
+              {currentProject.title}
+            </Heading>
+            {currentProject.subtitle && (
+              <small>
+                <em>{currentProject.subtitle}</em>
+              </small>
+            )}
+          </div>
+          <Markdown className="flex flex-col gap-3">
+            {currentProject.body}
+          </Markdown>
         </div>
-        <Markdown className="flex flex-col gap-3">
-          {currentProject.body}
-        </Markdown>
+        <ArrayOfLinks links={links} />
       </div>
-      <ArrayOfLinks links={links} />
     </div>
   );
 };
