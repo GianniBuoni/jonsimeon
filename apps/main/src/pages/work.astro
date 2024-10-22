@@ -3,21 +3,29 @@ export const prerender = false;
 
 // lib
 import { dbClient } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
 
 // ui
 import PortfolioLayout from "#components/PortfolioLayout";
 import { readItems } from "@directus/sdk";
+import { Heading } from "@jonsimeon/ui/react";
 
 const searchParams =
   Astro.url.searchParams.get("filter") || "design,programming";
 const filterArray = searchParams.split(",");
 
+const limitParam = Astro.url.searchParams.get("limit") || "5";
+
 const projects = await dbClient.request(
   readItems("projects", {
     fields: ["title", { hero_image: ["id", "description"] }],
+    sort: "title",
     filter: { tags: { _in: [filterArray] } },
+    limit: Number(limitParam),
   }),
 );
+
+const assets = env.PUBLIC_ASSETS;
 
 if (projects.length < 1) {
   return Astro.redirect("/404");
@@ -25,5 +33,33 @@ if (projects.length < 1) {
 ---
 
 <PortfolioLayout>
-  {projects.map((p) => p.title)}
+  <div class="flex flex-col gap-7">
+    {
+      projects.map((p) => {
+        const imgUrl = assets + "/" + p.hero_image.id + "?key=bg";
+        return (
+          <div class="relative rounded-box h-[26rem] bg-neutral shadow-hard overflow-hidden">
+            <div
+              class:list={[
+                "absolute top-0 left-0 h-full w-full",
+                "flex justify-center items-center",
+                "bg-base-300 bg-opacity-90",
+                "opacity-0 hover:opacity-100",
+              ]}
+            >
+              <Heading tagName="h2" size="h1" classes="text-accent">
+                {p.title}
+              </Heading>
+            </div>
+            <div
+              class="h-full bg-center bg-cover"
+              style={{
+                backgroundImage: `url(${imgUrl})`,
+              }}
+            />
+          </div>
+        );
+      })
+    }
+  </div>
 </PortfolioLayout>
