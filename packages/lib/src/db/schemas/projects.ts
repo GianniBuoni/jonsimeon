@@ -9,6 +9,7 @@ export type Project = {
   hero_image: DirectusFile;
   carousel_image: number[] | ProjectsFiles[];
   links: number[] | ProjectsBadges[];
+  tags: "csv";
 };
 
 export type ProjectsFiles = {

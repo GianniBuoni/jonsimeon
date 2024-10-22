@@ -1,0 +1,29 @@
+---
+export const prerender = false;
+
+// lib
+import { dbClient } from "@jonsimeon/lib/db";
+
+// ui
+import PortfolioLayout from "#components/PortfolioLayout";
+import { readItems } from "@directus/sdk";
+
+const searchParams =
+  Astro.url.searchParams.get("filter") || "design,programming";
+const filterArray = searchParams.split(",");
+
+const projects = await dbClient.request(
+  readItems("projects", {
+    fields: ["title", { hero_image: ["id", "description"] }],
+    filter: { tags: { _in: [filterArray] } },
+  }),
+);
+
+if (projects.length < 1) {
+  return Astro.redirect("/404");
+}
+---
+
+<PortfolioLayout>
+  {projects.map((p) => p.title)}
+</PortfolioLayout>
