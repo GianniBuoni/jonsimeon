@@ -1,4 +1,4 @@
-import type { IconBadge } from "#db/directus";
+import type { IconBadge } from "#db/index";
 
 export type Experience = {
   title: string;
@@ -6,11 +6,11 @@ export type Experience = {
   start_year: number;
   end_year: number | undefined;
   body: string;
-  skills: number[] | ExpsIconBadges[];
+  skills: number[] | ExpsBadges[];
 };
 
-export type ExpsIconBadges = {
+export type ExpsBadges = {
   id: number;
-  experience_id: string[] | Experience;
-  icon_badge_id: string[] | IconBadge;
+  experience_id: string | Experience;
+  icon_badge_id: string | IconBadge;
 };

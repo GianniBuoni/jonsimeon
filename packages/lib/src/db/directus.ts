@@ -2,10 +2,9 @@ import { createDirectus, rest, staticToken } from "@directus/sdk";
 export type { DirectusFile } from "@directus/sdk";
 import type { DirectusFile } from "@directus/sdk";
 import { env } from "#sharedEnv";
-import type { Post } from "./schemas/post";
-import type * as Project from "./schemas/projects";
-import type * as Resume from "./schemas/resume";
-import type * as Experience from "./schemas/experience";
+
+// schema types
+import type * as Db from "#db/index";
 
 //variables
 const directusURL = env.API_URL;
@@ -18,36 +17,21 @@ const dbClient = createDirectus<Schema>(directusURL)
 
 // define schema
 type Schema = {
-  experience: Experience.Experience[];
-  experience_icon_badge: Experience.ExpsIconBadges[];
-  icon_badge: IconBadge[]; // Rename in the db later? Should be plural for consistency
-  posts: Post[];
-  projects: Project.Project[];
-  projects_files: Project.ProjectsFiles[];
-  projects_icon_badge: Project.ProjectsIconBadges[];
-  resume: Resume.Resume;
-  resume_icon_badge: Resume.ResumeBadge[];
-  resume_projects: Resume.ResumeProject[];
-  site_assets: SiteAsset[];
+  experience: Db.Experience[];
+  experience_icon_badge: Db.ExpsBadges[];
+  icon_badge: Db.IconBadge[]; // Rename in the db later? Should be plural for consistency
+  main: Db.Main;
+  main_icon_badge: Db.MainBadges[];
+  main_projects: Db.MainProjects;
+  posts: Db.Post[];
+  projects: Db.Project[];
+  projects_files: Db.ProjectsFiles[];
+  projects_icon_badge: Db.ProjectsBadges[];
+  resume: Db.Resume;
+  resume_icon_badge: Db.ResumeBadges[];
+  resume_projects: Db.ResumeProjects[];
+  site_assets: Db.SiteAsset[];
   directus_files: DirectusFile[];
 };
-
-// Collections with m2m relationships
-export type SiteAsset = {
-  id: string;
-  title: string;
-  image: DirectusFile;
-};
-
-export type IconBadge = {
-  id: string;
-  icon: string;
-  href: string;
-  label: string;
-  description: string;
-  tag: IconTag;
-};
-
-export type IconTag = "skills" | "resume-toc" | "me";
 
 export default dbClient;
