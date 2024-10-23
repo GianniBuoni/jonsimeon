@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 // ui
 import Heading from "#react/Heading";
-import ArrayOfLinks from "#react/ArrayOfLinks";
+import RelatedLinks from "#react/RelatedLinks";
 
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";
@@ -19,10 +19,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const ModalCopy = ({ classes, ...rest }: Props) => {
   const { projects } = useContext(ProjectContext);
   const { page } = useModalStore();
-
   const currentProject = projects[page];
-  const linkIds = currentProject.links as ProjectsBadges[];
-  const links = linkIds.map((id) => id.icon_badge_id) as IconBadge[];
 
   const copyClasses = clsx([
     "bg-neutral z-20 overflow-scroll", // base
@@ -53,7 +50,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
             {currentProject.body}
           </Markdown>
         </div>
-        <ArrayOfLinks links={links} />
+        <RelatedLinks />
       </div>
     </div>
   );

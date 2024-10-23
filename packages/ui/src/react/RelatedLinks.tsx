@@ -4,13 +4,17 @@ import Heading from "#react/Heading";
 import Badge from "#react/Badge";
 
 // lib
-import type { IconBadge } from "@jonsimeon/lib/db";
+import type { IconBadge, ProjectsBadges } from "@jonsimeon/lib/db";
+import { useContext } from "react";
+import { ProjectContext } from "@jonsimeon/lib/contexts";
+import { useModalStore } from "@jonsimeon/lib/stores";
 
-interface Props {
-  links: IconBadge[];
-}
+const ArrayOfLinks = () => {
+  const { projects } = useContext(ProjectContext);
+  const { page } = useModalStore();
+  const exLinks = projects[page].links as ProjectsBadges[];
+  const links = exLinks.map((l) => l.icon_badge_id) as IconBadge[];
 
-const ArrayOfLinks = ({ links }: Props) => {
   return (
     <div>
       <Heading

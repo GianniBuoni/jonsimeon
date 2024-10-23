@@ -1,3 +1,7 @@
+// animations
+export { default as LoadProjectArray } from "#animations/LoadProjectArray";
+export { default as ProjectBody } from "#animations/ProjectBody";
+
 // cards
 export { default as BgImageCard } from "#cards/BgImageCard";
 export { default as Card } from "#cards/Card";
@@ -15,7 +19,7 @@ export { default as ModalCard } from "#modal/ModalCard";
 export { default as ModalCopy } from "#modal/ModalCopy";
 
 export { default as AccordionCard } from "./AccordionCard";
-export { default as ArrayOfLinks } from "./ArrayOfLinks";
+export { default as RelatedLinks } from "./RelatedLinks";
 export { default as Badge } from "./Badge";
 export { default as Button } from "./Button";
 export { default as Heading } from "./Heading";
