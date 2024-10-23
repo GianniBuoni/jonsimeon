@@ -14,20 +14,23 @@ interface Props {
 }
 
 const ProjectBody = ({ project, assets }: Props) => {
-  const { carousel_image, links, body } = project;
+  const { carousel_image, links, body, title } = project;
   const exLinks = links as ProjectsBadges[];
   const mappedLinks = exLinks.map((l) => l.icon_badge_id) as IconBadge[];
 
   return (
     <ProjectProvider projects={[project]} assets={assets}>
-      <div className="flex gap-10 my-10">
+      <div className="flex gap-10 my-10" aria-label={title}>
         <div className="w-[30rem] flex flex-col justify-between py-3">
           <div className="flex flex-col gap-3">
             <Markdown>{body}</Markdown>
           </div>
           <ArrayOfLinks links={mappedLinks} />
         </div>
-        <Card classes="h-96 xl:h-[30rem] w-full overflow-hidden flex flex-col gap-5">
+        <Card
+          classes="h-96 xl:h-[30rem] w-full overflow-hidden flex flex-col gap-5"
+          aria-label={`${title} image carousel`}
+        >
           <Carousel />
           <CarouselControls
             store="carousel"
