@@ -1,4 +1,5 @@
 // module
+import React from "react";
 import clsx from "clsx";
 
 // lib
@@ -13,7 +14,10 @@ interface Props {
   textVisisble?: boolean;
 }
 
-const BgImageCard = ({ project, assets, textVisisble = false }: Props) => {
+const BgImageCard = (
+  { project, assets, textVisisble = false }: Props,
+  ref: React.LegacyRef<HTMLDivElement>,
+) => {
   const { title, hero_image, slug, subtitle } = project;
   const imgUrl = assets + "/" + hero_image.id + "?key=bg";
 
@@ -27,7 +31,10 @@ const BgImageCard = ({ project, assets, textVisisble = false }: Props) => {
   ]);
 
   return (
-    <div className="relative rounded-box h-64 bg-neutral overflow-hidden shadow-hard">
+    <div
+      className="relative rounded-box h-64 bg-neutral overflow-hidden shadow-hard"
+      ref={ref}
+    >
       <a href={`/work/${slug}`} className={bgLinkClasses}>
         <Heading tagName="h2" size="h1" classes="text-accent">
           {title}
@@ -44,4 +51,4 @@ const BgImageCard = ({ project, assets, textVisisble = false }: Props) => {
   );
 };
 
-export default BgImageCard;
+export default React.forwardRef(BgImageCard);

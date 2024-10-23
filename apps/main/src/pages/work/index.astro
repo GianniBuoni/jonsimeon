@@ -8,7 +8,7 @@ import { env } from "@jonsimeon/lib/env";
 // ui
 import PortfolioLayout from "#components/PortfolioLayout";
 import { readItems } from "@directus/sdk";
-import { BgImageCard } from "@jonsimeon/ui/react";
+import { BgImageCard, LoadProjectArray } from "@jonsimeon/ui/react";
 
 const searchParams =
   Astro.url.searchParams.get("filter") || "illustration,design,programming";
@@ -41,5 +41,5 @@ if (projects.length < 1) {
 ---
 
 <PortfolioLayout>
-    {projects.map((p) => <BgImageCard project={p} {assets} />)}
+  <LoadProjectArray {projects} {assets} client:load />
 </PortfolioLayout>
