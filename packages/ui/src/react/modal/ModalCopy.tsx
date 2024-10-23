@@ -10,7 +10,7 @@ import ArrayOfLinks from "#react/ArrayOfLinks";
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";
 import { ProjectContext } from "@jonsimeon/lib/contexts";
-import type { IconBadge, ProjectsIconBadges } from "@jonsimeon/lib/db";
+import type { IconBadge, ProjectsBadges } from "@jonsimeon/lib/db";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   classes?: string;
@@ -21,7 +21,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
   const { page } = useModalStore();
 
   const currentProject = projects[page];
-  const linkIds = currentProject.links as ProjectsIconBadges[];
+  const linkIds = currentProject.links as ProjectsBadges[];
   const links = linkIds.map((id) => id.icon_badge_id) as IconBadge[];
 
   const copyClasses = clsx([

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import clsx from "clsx";
 
 // components
-import Card from "#react/Card";
+import Card from "#cards/Card";
 import Carousel from "#react/carousel/Carousel";
 import CarouselControls from "#react/carousel/CarouselControls";
 import ModalButton from "#react/modal/ModalButton";

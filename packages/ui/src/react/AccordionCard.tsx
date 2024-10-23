@@ -7,7 +7,7 @@ import { useAccordionStore } from "@jonsimeon/lib/stores";
 import type { AccordionContext } from "@jonsimeon/lib/contexts";
 
 // ui
-import Card from "#react/Card";
+import Card from "#cards/Card";
 import Heading from "#react/Heading";
 import Markdown from "react-markdown";
 

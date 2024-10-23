@@ -1,3 +1,7 @@
+// cards
+export { default as BgImageCard } from "#cards/BgImageCard";
+export { default as Card } from "#cards/Card";
+
 // carousel
 export { default as Carousel } from "#carousel/Carousel";
 export { default as CarouselCard } from "#carousel/CarouselCard";
@@ -13,9 +17,7 @@ export { default as ModalCopy } from "#modal/ModalCopy";
 export { default as AccordionCard } from "./AccordionCard";
 export { default as ArrayOfLinks } from "./ArrayOfLinks";
 export { default as Badge } from "./Badge";
-export { default as BgImageCard } from "./BgImageCard";
 export { default as Button } from "./Button";
-export { default as Card } from "./Card";
 export { default as Heading } from "./Heading";
 export { default as HeroBg } from "./HeroBg";
 export { default as HeroGreeting } from "./HeroGreeting";

@@ -11,6 +11,7 @@
     "#astro/*": "./src/astro/*.astro",
     "#layouts/*": "./src/layouts/*.astro",
     "#react/*": "./src/react/*.tsx",
+    "#cards/*": "./src/react/cards/*.tsx",
     "#carousel/*": "./src/react/carousel/*.tsx",
     "#modal/*": "./src/react/modal/*.tsx"
   },
