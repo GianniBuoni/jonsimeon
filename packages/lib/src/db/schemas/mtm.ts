@@ -13,7 +13,5 @@ export type IconBadge = {
   href: string;
   label: string;
   description: string;
-  tag: IconTag;
+  tag: "csv";
 };
-
-export type IconTag = "skills" | "resume-toc" | "me";

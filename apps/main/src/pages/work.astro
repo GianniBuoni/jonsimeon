@@ -11,22 +11,24 @@ import { readItems } from "@directus/sdk";
 import { Heading } from "@jonsimeon/ui/react";
 
 const searchParams =
-  Astro.url.searchParams.get("filter") || "design,programming";
+  Astro.url.searchParams.get("filter") || "illustration,design,programming";
 const filterArray = searchParams.split(",");
 
 const limitParam = Astro.url.searchParams.get("limit") || "5";
 
-const projects = await dbClient.request(
+const request = await dbClient.request(
   readItems("projects", {
-    fields: ["title", { hero_image: ["id", "description"] }],
+    fields: ["title", "tags", { hero_image: ["id", "description"] }],
     sort: "title",
-    filter: { tags: { _in: [filterArray] } },
     limit: Number(limitParam),
   }),
 );
 
-const assets = env.PUBLIC_ASSETS;
+const projects = request.filter((p) => {
+  return filterArray.some((f) => p.tags.includes(f));
+});
 
+const assets = env.PUBLIC_ASSETS;
 if (projects.length < 1) {
   return Astro.redirect("/404");
 }
@@ -38,7 +40,7 @@ if (projects.length < 1) {
       projects.map((p) => {
         const imgUrl = assets + "/" + p.hero_image.id + "?key=bg";
         return (
-          <div class="relative rounded-box h-[26rem] bg-neutral shadow-hard overflow-hidden">
+          <div class="relative rounded-box h-[30rem] bg-neutral shadow-hard overflow-hidden">
             <div
               class:list={[
                 "absolute top-0 left-0 h-full w-full",
