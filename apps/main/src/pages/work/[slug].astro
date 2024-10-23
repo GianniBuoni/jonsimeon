@@ -1,0 +1,38 @@
+---
+import PortfolioLayout from "#components/PortfolioLayout";
+
+import { readItems } from "@directus/sdk";
+import { dbClient } from "@jonsimeon/lib/db";
+import type { DirectusFile } from "@jonsimeon/lib/db";
+
+import type { GetStaticPaths } from "astro";
+export const getStaticPaths = (async () => {
+  const request = await dbClient.request(
+    readItems("projects", {
+      fields: [
+        "title",
+        "slug",
+        "body",
+        "links",
+        "subtitle",
+        { hero_image: ["id"] },
+        { carousel_image: [{ directus_files_id: ["id", "description"] }] },
+      ],
+    }),
+  );
+  return request.map((p) => {
+    return { params: { slug: p.slug }, props: { project: p } };
+  });
+}) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+
+const { title, subtitle, body, links, hero_image } = project;
+
+const carousel = project.carousel_image!.map((i) => {
+  const dFile = i.directus_files_id as DirectusFile;
+  return { id: dFile.id, alt: dFile.description };
+});
+---
+
+<PortfolioLayout {title}>{title}</PortfolioLayout>

@@ -5,6 +5,7 @@ export type Project = {
   id: string;
   title: string;
   subtitle?: string;
+  slug: string;
   body: string;
   hero_image: DirectusFile;
   carousel_image: number[] | ProjectsFiles[];
