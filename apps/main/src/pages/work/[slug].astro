@@ -1,13 +1,19 @@
 ---
-import PortfolioLayout from "#components/PortfolioLayout";
-
+// modules
 import { readItems } from "@directus/sdk";
-import { dbClient } from "@jonsimeon/lib/db";
-import type { DirectusFile } from "@jonsimeon/lib/db";
-
 import type { GetStaticPaths } from "astro";
+
+// ui
+import PortfolioLayout from "#components/PortfolioLayout";
+import { BgImageCard } from "@jonsimeon/ui/react";
+
+// lib
+import { dbClient } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
+import type { Project } from "@jonsimeon/lib/db";
+
 export const getStaticPaths = (async () => {
-  const request = await dbClient.request(
+  const request = (await dbClient.request(
     readItems("projects", {
       fields: [
         "title",
@@ -19,7 +25,8 @@ export const getStaticPaths = (async () => {
         { carousel_image: [{ directus_files_id: ["id", "description"] }] },
       ],
     }),
-  );
+  )) as Project[];
+
   return request.map((p) => {
     return { params: { slug: p.slug }, props: { project: p } };
   });
@@ -27,12 +34,10 @@ export const getStaticPaths = (async () => {
 
 const { project } = Astro.props;
 
-const { title, subtitle, body, links, hero_image } = project;
-
-const carousel = project.carousel_image!.map((i) => {
-  const dFile = i.directus_files_id as DirectusFile;
-  return { id: dFile.id, alt: dFile.description };
-});
+const { title, body } = project;
+const assets = env.PUBLIC_ASSETS;
 ---
 
-<PortfolioLayout {title}>{title}</PortfolioLayout>
+<PortfolioLayout {title}>
+  <BgImageCard {project} {assets} textVisisble={true} />
+</PortfolioLayout>

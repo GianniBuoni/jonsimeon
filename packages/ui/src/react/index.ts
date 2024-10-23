@@ -13,6 +13,7 @@ export { default as ModalCopy } from "#modal/ModalCopy";
 export { default as AccordionCard } from "./AccordionCard";
 export { default as ArrayOfLinks } from "./ArrayOfLinks";
 export { default as Badge } from "./Badge";
+export { default as BgImageCard } from "./BgImageCard";
 export { default as Button } from "./Button";
 export { default as Card } from "./Card";
 export { default as Heading } from "./Heading";
