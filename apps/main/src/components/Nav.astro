@@ -32,14 +32,14 @@ const { classes, ...rest } = Astro.props;
 
 <nav class:list={["self-start", "flex flex-col gap-4"]} {...rest}>
   <Logo />
-  <Card color="warning" classes="grow-0">
+  <Card color="warning" classes="mt-5 grow-0">
     <Heading
       tagName="h3"
       size="h3"
       addMargin={false}
       classes="text-warning-content pb-1">Links</Heading
     >
-    <ul class="flex flex-col gap-1">
+    <ul class="flex flex-col pb-1 gap-1">
       {
         links.toc!.map((i) => (
           <a href={i.icon_badge_id.href}>
@@ -61,7 +61,7 @@ const { classes, ...rest } = Astro.props;
     >
       Filters
     </Heading>
-    <ul class="flex flex-col gap-2">
+    <ul class="flex flex-col pb-2 gap-2">
       {
         filters.toc!.map((i) => (
           <Badge>

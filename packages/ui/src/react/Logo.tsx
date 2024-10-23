@@ -2,11 +2,10 @@ import Heading from "#react/Heading";
 import Link from "#react/Link";
 
 const heading = "Jon Simeon";
-const baseUrl = import.meta.env.BASE_URL;
 
 const Logo = () => {
   return (
-    <Link href={baseUrl} classes="z-20">
+    <Link href="/" classes="z-20">
       <div className="bg-accent py-1 px-3 w-fit rounded-full self-start z-20">
         <Heading
           tagName="h1"
