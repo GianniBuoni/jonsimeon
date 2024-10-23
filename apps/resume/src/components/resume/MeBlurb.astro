@@ -14,7 +14,8 @@ import { readItems } from "@directus/sdk";
 const meInfo = await dbClient.request(
   readItems("icon_badge", {
     fields: ["label", "icon", "description"],
-    filter: { tag: { _eq: "me" } },
+    //@ts-ignore
+    filter: { tags: { _contains: "me-info" } },
     sort: "label",
   }),
 );

@@ -10,13 +10,16 @@ import { readItems } from "@directus/sdk";
 import { dbClient } from "@jonsimeon/lib/db";
 
 // data
-const allSkills = await dbClient.request(
+let allSkills = await dbClient.request(
   readItems("icon_badge", {
     fields: ["icon", "label", "description"],
-    filter: { tag: { _eq: "skills" } },
+    //@ts-ignore
+    filter: { tags: { _contains: "skill" } },
     sort: "label",
   }),
 );
+
+allSkills.splice(4, 1);
 ---
 
 <Card color="primary" classes="lg:w-1/2">

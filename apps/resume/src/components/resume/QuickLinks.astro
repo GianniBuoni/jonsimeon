@@ -17,7 +17,7 @@ const resume = await dbClient.request(
 const toc = resume.toc!.map((id) => id.icon_badge_id);
 ---
 
-<Card color="warning" classes="md:grow-0 h-fit">
+<Card color="warning" classes="md:grow-0">
   <div class="card-body p-5">
     <Heading tagName="h3" size="h2"> Quick Links </Heading>
     <ul class="flex flex-col gap-2">
