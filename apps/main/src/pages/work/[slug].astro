@@ -5,13 +5,12 @@ import type { GetStaticPaths } from "astro";
 
 // ui
 import PortfolioLayout from "#components/PortfolioLayout";
-import { BgImageCard } from "@jonsimeon/ui/react";
 
 // lib
 import { dbClient } from "@jonsimeon/lib/db";
 import { env } from "@jonsimeon/lib/env";
 import type { Project } from "@jonsimeon/lib/db";
-import ProjectBody from "../../components/ProjectBody";
+import { ProjectBody } from "@jonsimeon/ui/react";
 
 export const getStaticPaths = (async () => {
   const request = (await dbClient.request(
@@ -21,7 +20,7 @@ export const getStaticPaths = (async () => {
         "slug",
         "body",
         "subtitle",
-        {links: [{icon_badge_id: ["icon", "label", "href"]}]},
+        { links: [{ icon_badge_id: ["icon", "label", "href"] }] },
         { hero_image: ["id"] },
         { carousel_image: [{ directus_files_id: ["id", "description"] }] },
       ],
@@ -40,6 +39,5 @@ const assets = env.PUBLIC_ASSETS;
 ---
 
 <PortfolioLayout {title}>
-  <BgImageCard {project} {assets} textVisisble={true} />
   <ProjectBody client:load project={project} assets={assets} />
 </PortfolioLayout>
