@@ -28,14 +28,14 @@ const {
         Massachusetts &nbsp;•
       </span>
     </Marquee>
-    <Section classes="min-h-[99vh]" innerClasses="md:pt-16">
-      <div class="flex relative gap-10">
-        <Nav />
+    <div class="flex justify-center md:py-10">
+      <Nav />
+      <Section classes="max-w-screen-lg 2xl:max-w-screen-xl min-h-[92vh]">
         <div class="flex flex-col gap-7 grow">
           <slot />
         </div>
-      </div>
-    </Section>
+      </Section>
+    </div>
   </main>
   <Footer />
 </MainLayout>

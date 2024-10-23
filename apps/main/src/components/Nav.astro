@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { readSingleton } from "@directus/sdk";
 import { dbClient } from "@jonsimeon/lib/db";
-import { Badge, Card, Heading, Logo } from "@jonsimeon/ui/react";
+import { Badge, Card, Heading, Logo, Section } from "@jonsimeon/ui/react";
 import { Icon } from "astro-icon/components";
 
 const links = await dbClient.request(
@@ -26,13 +26,16 @@ const filters = await dbClient.request(
 interface Props extends HTMLAttributes<"nav"> {
   classes?: string;
 }
-
-const { classes, ...rest } = Astro.props;
 ---
 
-<nav class:list={["self-start", "flex flex-col gap-4"]} {...rest}>
+<Section
+  aria-label="nav"
+  classes="w-72 xl:w-56"
+  tagType="nav"
+  innerClasses="flex flex-col gap-4 md:pr-0"
+>
   <Logo />
-  <Card color="warning" classes="mt-5 grow-0">
+  <Card color="warning" classes="mt-5">
     <Heading
       tagName="h3"
       size="h3"
@@ -52,7 +55,7 @@ const { classes, ...rest } = Astro.props;
       }
     </ul>
   </Card>
-  <Card color="info" classes="grow-0">
+  <Card color="info">
     <Heading
       tagName="h3"
       size="h3"
@@ -71,4 +74,4 @@ const { classes, ...rest } = Astro.props;
       }
     </ul>
   </Card>
-</nav>
+</Section>
