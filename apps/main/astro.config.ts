@@ -13,8 +13,11 @@ export default defineConfig({
   site: "https://jonsimeon.com",
   integrations: [tailwind(), react(), icon()],
   output: "hybrid",
-
   adapter: node({
     mode: "standalone",
   }),
+  experimental: {
+    serverIslands: true,
+  },
 });
+
