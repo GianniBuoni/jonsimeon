@@ -1,11 +1,11 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import { readSingleton } from "@directus/sdk";
-import { dbClient } from "@jonsimeon/lib/db";
-import { Badge, Card, Heading, Logo, Section } from "@jonsimeon/ui/react";
-import { Icon } from "astro-icon/components";
+import { dbClient, type MainBadges } from "@jonsimeon/lib/db";
+import { Section } from "@jonsimeon/ui/react";
+import { MotionNav } from "@jonsimeon/ui/react";
 
-const links = await dbClient.request(
+const lRequest = await dbClient.request(
   readSingleton("main", {
     fields: [{ toc: [{ icon_badge_id: ["icon", "href", "label"] }] }],
     deep: {
@@ -14,7 +14,9 @@ const links = await dbClient.request(
   }),
 );
 
-const filters = await dbClient.request(
+const links = lRequest.toc as MainBadges[];
+
+const fRequest = await dbClient.request(
   readSingleton("main", {
     fields: [{ toc: [{ icon_badge_id: ["icon", "href", "label"] }] }],
     deep: {
@@ -22,6 +24,8 @@ const filters = await dbClient.request(
     },
   }),
 );
+
+const filters = fRequest.toc as MainBadges[];
 
 interface Props extends HTMLAttributes<"nav"> {
   classes?: string;
@@ -32,46 +36,7 @@ interface Props extends HTMLAttributes<"nav"> {
   aria-label="nav"
   classes="w-72 xl:w-56"
   tagType="nav"
-  innerClasses="flex flex-col gap-4 md:pr-0"
+  innerClasses="md:pr-0"
 >
-  <Logo />
-  <Card color="warning" classes="mt-5">
-    <Heading
-      tagName="h3"
-      size="h3"
-      addMargin={false}
-      classes="text-warning-content pb-1">Links</Heading
-    >
-    <ul class="flex flex-col pb-1 gap-1">
-      {
-        links.toc!.map((i) => (
-          <a href={i.icon_badge_id.href}>
-            <Badge>
-              <Icon name={i.icon_badge_id.icon} />
-              <p>{i.icon_badge_id.label}</p>
-            </Badge>
-          </a>
-        ))
-      }
-    </ul>
-  </Card>
-  <Card color="info">
-    <Heading
-      tagName="h3"
-      size="h3"
-      addMargin={false}
-      classes="text-info-content pb-1"
-    >
-      Filters
-    </Heading>
-    <ul class="flex flex-col pb-2 gap-2">
-      {
-        filters.toc!.map((i) => (
-          <Badge>
-            <Icon name={i.icon_badge_id.icon} /> <p>{i.icon_badge_id.label}</p>
-          </Badge>
-        ))
-      }
-    </ul>
-  </Card>
+  <MotionNav {links} {filters} client:load/>
 </Section>
