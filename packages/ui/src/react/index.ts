@@ -1,11 +1,11 @@
 // animations
 export { default as LoadProjectArray } from "#animations/LoadProjectArray";
 export { default as ProjectBody } from "#animations/ProjectBody";
-export { default as MotionNav } from "#animations/MotionNav";
 
 // cards
 export { default as BgImageCard } from "#cards/BgImageCard";
 export { default as Card } from "#cards/Card";
+export { default as NavCards } from "#cards/NavCards";
 
 // carousel
 export { default as Carousel } from "#carousel/Carousel";

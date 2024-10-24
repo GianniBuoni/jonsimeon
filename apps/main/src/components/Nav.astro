@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "astro/types";
 import { readSingleton } from "@directus/sdk";
 import { dbClient, type MainBadges } from "@jonsimeon/lib/db";
 import { Section } from "@jonsimeon/ui/react";
-import { MotionNav } from "@jonsimeon/ui/react";
+import { NavCards } from "@jonsimeon/ui/react";
 
 const lRequest = await dbClient.request(
   readSingleton("main", {
@@ -34,9 +34,10 @@ interface Props extends HTMLAttributes<"nav"> {
 
 <Section
   aria-label="nav"
-  classes="w-64 xl:w-56"
+  classes="max-w-64 2xl:max-w-56"
   tagType="nav"
-  innerClasses="md:pr-0"
+  innerClasses="h-full"
+  overrideOverflow={true}
 >
-  <MotionNav {links} {filters} client:load />
+  <NavCards {links} {filters} client:idle />
 </Section>

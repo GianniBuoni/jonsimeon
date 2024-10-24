@@ -1,4 +1,3 @@
-// ui
 import Logo from "#react/Logo";
 import MenuFilterCard from "#react/cards/MenuFilterCard";
 import MenuLinkCard from "#react/cards/MenuLinkCard";
@@ -12,10 +11,10 @@ interface Props {
   filters: MainBadges[];
 }
 
-const MotionNav = ({ links, filters }: Props) => {
+const NavCards = ({ links, filters }: Props) => {
   return (
     <MenuItemsContext.Provider value={{ links, filters }}>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 sticky top-16">
         <Logo />
         <MenuLinkCard />
         <MenuFilterCard />
@@ -24,4 +23,4 @@ const MotionNav = ({ links, filters }: Props) => {
   );
 };
 
-export default MotionNav;
+export default NavCards;
