@@ -27,7 +27,7 @@ const MenuLinkCard = () => {
         {links.map((i) => {
           const badgeId = i.icon_badge_id as IconBadge;
           return (
-            <a href={badgeId.href}>
+            <a href={badgeId.href} key={badgeId.label}>
               <Badge>
                 <Icon icon={badgeId.icon} />
                 <p>{badgeId.label}</p>
