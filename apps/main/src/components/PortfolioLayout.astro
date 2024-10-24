@@ -4,6 +4,11 @@ import { MainLayout } from "@jonsimeon/ui/layouts";
 import { Marquee, Section } from "@jonsimeon/ui/react";
 import Nav from "#components/Nav";
 
+// lib
+import { noodleFullBody } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
+const assets = env.PUBLIC_ASSETS;
+
 interface Props {
   title?: string;
   description?: string;
@@ -30,12 +35,22 @@ const {
     </Marquee>
     <div class="flex justify-center md:py-10">
       <Nav />
-      <Section aria-label="page content" classes="max-w-screen-lg 2xl:max-w-screen-xl min-h-[92vh]" innerClasses="md:pl-0">
+      <Section
+        aria-label="page content"
+        classes="max-w-screen-lg 2xl:max-w-screen-xl min-h-[92vh]"
+        innerClasses="md:pl-0"
+      >
         <div class="flex flex-col gap-7 grow">
           <slot />
         </div>
       </Section>
     </div>
   </main>
-  <Footer />
+  <Footer>
+    <img
+      src={`${assets}/${noodleFullBody.id}?key=small`}
+      alt={noodleFullBody.description}
+      class="absolute bottom-0 right-10 h-[22rem]"
+    />
+  </Footer>
 </MainLayout>
