@@ -10,9 +10,14 @@ import Card from "#react/cards/Card";
 // lib
 import { MenuItemsContext } from "@jonsimeon/lib/contexts";
 import type { IconBadge } from "@jonsimeon/lib/db";
+import { useFilterStore } from "@jonsimeon/lib/stores";
 
 const MenuLinkCard = () => {
   const { links } = useContext(MenuItemsContext);
+  const { searchParams } = useFilterStore();
+  const workLink = links[0].icon_badge_id as IconBadge;
+  const restLinks = links.slice(1);
+
   return (
     <Card color="warning" classes="mt-5">
       <Heading
@@ -24,7 +29,19 @@ const MenuLinkCard = () => {
         Links
       </Heading>
       <ul className="flex flex-col pb-1 gap-1">
-        {links.map((i) => {
+        <a
+          href={
+            searchParams.length >= 1
+              ? workLink.href + "?filter=" + searchParams.join(",")
+              : workLink.href
+          }
+        >
+          <Badge>
+            <Icon icon={workLink.icon} />
+            <p>{workLink.label}</p>
+          </Badge>
+        </a>
+        {restLinks.map((i) => {
           const badgeId = i.icon_badge_id as IconBadge;
           return (
             <a href={badgeId.href} key={badgeId.label}>
