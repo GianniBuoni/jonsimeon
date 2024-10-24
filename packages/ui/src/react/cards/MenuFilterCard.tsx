@@ -15,7 +15,7 @@ import { useFilterStore } from "@jonsimeon/lib/stores";
 const MenuFilterCard = () => {
   const { filters } = useContext(MenuItemsContext);
   const [shouldRunEffect, setRunEffect] = useState(false);
-  const { searchParams, addParam, rmParam } = useFilterStore();
+  const { searchParams, addParam, rmParam, reset } = useFilterStore();
 
   useEffect(() => {
     if (shouldRunEffect) {
@@ -36,6 +36,15 @@ const MenuFilterCard = () => {
     setRunEffect(true);
   };
 
+  const handleReset = () => {
+    reset();
+    setRunEffect(true);
+  };
+
+  const isActive = (input: string) => {
+    return searchParams.includes(input) ? "accent" : "secondary";
+  };
+
   return (
     <Card color="info">
       <Heading
@@ -51,14 +60,23 @@ const MenuFilterCard = () => {
           const badgeId = f.icon_badge_id as IconBadge;
           return (
             <Badge
+              color={isActive(badgeId.label.toLowerCase())}
               key={badgeId.label}
               onClick={() => handleClick(badgeId.label.toLowerCase())}
             >
               <Icon icon={badgeId.icon} />
-              <p>{badgeId.label}</p>
+              {badgeId.label}
             </Badge>
           );
         })}
+        <Badge
+          color="secondary"
+          title="Remove all filters"
+          onClick={() => handleReset()}
+        >
+          <Icon icon="mdi:close-circle" />
+          Reset
+        </Badge>
       </ul>
     </Card>
   );

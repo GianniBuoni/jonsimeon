@@ -47,7 +47,7 @@ const MenuLinkCard = () => {
             <a href={badgeId.href} key={badgeId.label}>
               <Badge>
                 <Icon icon={badgeId.icon} />
-                <p>{badgeId.label}</p>
+                {badgeId.label}
               </Badge>
             </a>
           );
