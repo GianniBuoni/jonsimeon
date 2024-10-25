@@ -15,7 +15,8 @@ import { useFilterStore } from "@jonsimeon/lib/stores";
 const MenuFilterCard = () => {
   const { filters } = useContext(MenuItemsContext);
   const [shouldRunEffect, setRunEffect] = useState(false);
-  const { searchParams, addParam, rmParam, reset } = useFilterStore();
+  const { searchParams, filtersOpen, addParam, rmParam, reset, toggleFilter } =
+    useFilterStore();
 
   useEffect(() => {
     if (shouldRunEffect) {
@@ -46,16 +47,19 @@ const MenuFilterCard = () => {
   };
 
   return (
-    <Card color="info">
-      <Heading
-        tagName="h3"
-        size="h3"
-        addMargin={false}
-        classes="text-info-content pb-1"
-      >
-        Filters
-      </Heading>
-      <ul className="flex flex-col pb-2 gap-2 cursor-pointer">
+    <div className="collapse collapse-arrow">
+      <input
+        type="checkbox"
+        readOnly
+        checked={filtersOpen}
+        onClick={() => toggleFilter()}
+      ></input>
+      <div className="collapse-title">
+        <Heading tagName="h3" size="h3" addMargin={false}>
+          Filters
+        </Heading>
+      </div>
+      <ul className="collapse-content flex flex-col pb-2 gap-2 cursor-pointer">
         {filters.map((f) => {
           const badgeId = f.icon_badge_id as IconBadge;
           return (
@@ -78,7 +82,7 @@ const MenuFilterCard = () => {
           Reset
         </Badge>
       </ul>
-    </Card>
+    </div>
   );
 };
 

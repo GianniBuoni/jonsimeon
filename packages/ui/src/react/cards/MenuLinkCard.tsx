@@ -4,7 +4,6 @@ import { useContext } from "react";
 //ui
 import Heading from "#react/Heading";
 import Badge from "#react/Badge";
-import Card from "#react/cards/Card";
 import Icon from "#react/Icon";
 
 // lib
@@ -14,21 +13,24 @@ import { useFilterStore } from "@jonsimeon/lib/stores";
 
 const MenuLinkCard = () => {
   const { links } = useContext(MenuItemsContext);
-  const { searchParams } = useFilterStore();
+  const { searchParams, linksOpen, toggleLinks } = useFilterStore();
   const workLink = links[0].icon_badge_id as IconBadge;
   const restLinks = links.slice(1);
 
   return (
-    <Card color="warning" classes="mt-5">
-      <Heading
-        tagName="h3"
-        size="h3"
-        addMargin={false}
-        classes="text-warning-content pb-1"
-      >
-        Links
-      </Heading>
-      <ul className="flex flex-col pb-1 gap-1">
+    <div className="collapse collapse-arrow">
+      <input
+        type="checkbox"
+        checked={linksOpen}
+        onClick={() => toggleLinks()}
+        readOnly
+      />
+      <div className="collapse-title">
+        <Heading tagName="h3" size="h3" addMargin={false}>
+          Links
+        </Heading>
+      </div>
+      <ul className="flex flex-col pb-1 gap-1 collapse-content">
         <a
           href={
             searchParams.length >= 1
@@ -53,7 +55,7 @@ const MenuLinkCard = () => {
           );
         })}
       </ul>
-    </Card>
+    </div>
   );
 };
 

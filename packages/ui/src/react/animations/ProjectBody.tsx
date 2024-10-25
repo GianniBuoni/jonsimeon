@@ -17,12 +17,6 @@ const ProjectBody = ({ project, assets }: Props) => {
     <ProjectProvider projects={[project]} assets={assets}>
       <MotionTitleCard />
       <div className="flex gap-10 my-10" aria-label={title}>
-        <div className="w-[30rem] flex flex-col justify-between py-3">
-          <div className="flex flex-col gap-3">
-            <Markdown>{body}</Markdown>
-          </div>
-          <RelatedLinks />
-        </div>
         <Card
           classes="h-96 xl:h-[30rem] w-full overflow-hidden flex flex-col gap-5"
           aria-label={`${title} image carousel`}
@@ -36,6 +30,12 @@ const ProjectBody = ({ project, assets }: Props) => {
             }}
           />
         </Card>
+        <div className="w-[30rem] flex flex-col justify-between py-3">
+          <div className="flex flex-col gap-3">
+            <Markdown>{body}</Markdown>
+          </div>
+          <RelatedLinks />
+        </div>
       </div>
       {/*Related projects go here when there are enough */}
     </ProjectProvider>
