@@ -6,6 +6,7 @@ import { ProjectContext } from "@jonsimeon/lib/contexts";
 import { useCarouselStore, useModalStore } from "@jonsimeon/lib/stores";
 import type { DirectusFile, ProjectsFiles } from "@jonsimeon/lib/db";
 import CarouselControls from "./CarouselControls";
+import ModalButton from "#react/modal/ModalButton";
 
 const FullCarousel = () => {
   const { projects } = useContext(ProjectContext);
@@ -21,7 +22,7 @@ const FullCarousel = () => {
   return (
     <ModalBg resetCarousel={false} classes="flex-col">
       <button
-        className="hover:scale-105 z-30 fixed right-5 top-5"
+        className="hover:scale-125 transition-transform z-30 fixed right-5 top-5"
         onClick={() => deselect!()}
       >
         <Icon icon="mdi:close-circle" size="2rem" className="text-neutral" />

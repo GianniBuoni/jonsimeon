@@ -14,17 +14,35 @@ import ModalCopy from "#react/modal/ModalCopy";
 import { useModalStore } from "@jonsimeon/lib/stores";
 import { ProjectContext } from "@jonsimeon/lib/contexts";
 
-const ModalCard = () => {
+interface Props {
+  expandedFeatures?: boolean;
+}
+
+const ModalCard = ({ expandedFeatures = false }: Props) => {
   const { projects } = useContext(ProjectContext);
-  const { page } = useModalStore();
+  const { page, select } = useModalStore();
   const project = projects[page];
+
+  const cardClasses = clsx([
+    "portrait:max-w-xl portrait:sm:max-w-lg lg:max-w-screen-lg xl:w-screen-md", // width
+    "h-[85vh] md:max-h-[35rem] 2xl:h-[50vh] overflow-hidden", // height
+    "mb-16 md:mb-5",
+    !expandedFeatures && "z-30",
+    "grid grid-rows-7 landscape:grid-rows-1", // rows breakpoint
+    "landscape:grid-cols-9 gap-5 lg:gap-10", //  columns breakpoint
+    "overflow-hidden",
+  ]);
 
   return (
     <AnimatePresence>
       <MotionCard layoutId={`modal-${project.id}`} classes={cardClasses}>
-        <ModalButton />
+        {!expandedFeatures && <ModalButton />}
         <div className={carouselClasses}>
-          <Carousel />
+          {expandedFeatures ? (
+            <Carousel classes="cursor-zoom-in" onClick={() => select!()} />
+          ) : (
+            <Carousel />
+          )}
           <CarouselControls
             store="carousel"
             settings={{
@@ -38,16 +56,6 @@ const ModalCard = () => {
     </AnimatePresence>
   );
 };
-
-const cardClasses = clsx([
-  "portrait:max-w-xl portrait:sm:max-w-lg lg:max-w-screen-lg xl:w-screen-md", // width
-  "h-[85vh] md:max-h-[35rem] 2xl:h-[50vh] overflow-hidden", // height
-  "mb-16 md:mb-5",
-  "z-30",
-  "grid grid-rows-7 landscape:grid-rows-1", // rows breakpoint
-  "landscape:grid-cols-9 gap-5 lg:gap-10", //  columns breakpoint
-  "overflow-hidden",
-]);
 
 const carouselClasses = clsx([
   "flex flex-col gap-5 p-1", // base
