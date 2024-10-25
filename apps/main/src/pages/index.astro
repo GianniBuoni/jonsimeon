@@ -1,25 +1,47 @@
 ---
-import { SiteMessage } from "@jonsimeon/ui/astro";
-import { Link, HeroGreeting } from "@jonsimeon/ui/react";
+// ui
+import { MainLayout } from "@jonsimeon/ui/layouts";
+import { HeroGreeting, Section, Logo, Badge } from "@jonsimeon/ui/react";
+import MainFooter from "#components/MainFooter";
+import MainMarquee from "#react/MainMarquee";
 
 const title = "Illustration & Design";
 const description = "My portfolio of my iullustration and design work.";
 
-const resume = "https://resume.jonsimeon.com";
+import { links } from "#lib/requests";
+import { Icon } from "astro-icon/components";
+import type { IconBadge } from "@jonsimeon/lib/db";
 ---
 
-<SiteMessage {title} {description}>
-  <div class="max-w-screen-md landscape:pl-10">
-    <HeroGreeting
-      first={`Fun things are on their way!`}
-      cursor={false}
-      client:load
-    >
-      <p>
-        I'm working on rebuilding &nbsp;
-        <Link href="/">jonsimeon.com</Link>.
-      </p>
-      <p>In the meanwhile, check out my <Link href={resume}>resume</Link>!</p>
-    </HeroGreeting>
-  </div>
-</SiteMessage>
+<MainLayout {title} {description}>
+  <MainMarquee client:idle />
+  <main>
+  <Section innerClasses="h-[99vh]">
+    <div class="flex flex-col h-[75vh] items-center justify-between py-10">
+      <div class="w-full">
+        <Logo />
+      </div>
+      <HeroGreeting
+        first={`Hi, there!`}
+        second={`It's me ya boye, Jon!`}
+        client:load
+      />
+    </div>
+    <ul class="flex grow justify-center items-center gap-10">
+      {
+        links.map((l) => {
+          const icon = l.icon_badge_id as IconBadge;
+          return (
+            <a href={icon.href}>
+              <Badge>
+                <Icon name={icon.icon} /> {icon.label}
+              </Badge>
+            </a>
+          );
+        })
+      }
+    </ul>
+  </Section>
+  </main>
+  <MainFooter /> 
+</MainLayout>
