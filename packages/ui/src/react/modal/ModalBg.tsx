@@ -1,20 +1,35 @@
 // modules
 import type { PropsWithChildren } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 import clsx from "clsx";
 
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";
 import { useCarouselStore } from "@jonsimeon/lib/stores";
 
-const ModalBg = ({ children }: PropsWithChildren) => {
+interface Props extends HTMLMotionProps<"div"> {
+  resetCarousel: boolean;
+  classes?: string;
+}
+
+const ModalBg = ({ resetCarousel, classes, children }: Props) => {
   const { selection, deselect } = useModalStore();
   const { reset } = useCarouselStore();
 
   const handleClick = () => {
     deselect!();
-    reset();
+    if (resetCarousel) reset();
   };
+
+  const bgClasses = clsx([
+    sharedClases,
+    "fixed flex justify-center items-center", // display
+    "bg-base-300 bg-opacity-90 z-30", //color
+    "p-5 lg:p-10", //padding should match Section component
+    classes,
+  ]);
+
   return (
     <AnimatePresence>
       {selection && (
@@ -38,12 +53,5 @@ const ModalBg = ({ children }: PropsWithChildren) => {
 };
 
 const sharedClases = "top-0 left-0 h-screen w-screen";
-
-const bgClasses = clsx([
-  sharedClases,
-  "fixed flex justify-center items-center", // display
-  "bg-base-300 bg-opacity-90 z-30", //color
-  "p-5 lg:p-10", //padding should match Section component
-]);
 
 export default ModalBg;

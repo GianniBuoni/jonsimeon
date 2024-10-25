@@ -1,9 +1,14 @@
+// modules
 import Markdown from "react-markdown";
 
 import { ProjectProvider } from "@jonsimeon/lib/contexts";
 import type { Project } from "@jonsimeon/lib/db";
+import { useModalStore } from "@jonsimeon/lib/stores";
+
+// ui
 import { RelatedLinks, Card, Carousel, CarouselControls } from "../";
 import MotionTitleCard from "#react/cards/MotionTitleCard";
+import FullCarousel from "#react/carousel/FullCarousel";
 
 interface Props {
   project: Project;
@@ -12,16 +17,18 @@ interface Props {
 
 const ProjectBody = ({ project, assets }: Props) => {
   const { carousel_image, body, title } = project;
+  const { select } = useModalStore();
 
   return (
     <ProjectProvider projects={[project]} assets={assets}>
+      <FullCarousel />
       <MotionTitleCard />
       <div className="flex gap-10 my-10" aria-label={title}>
         <Card
-          classes="h-96 xl:h-[30rem] w-full overflow-hidden flex flex-col gap-5"
+          classes="h-96 xl:h-[30rem] w-full overflow-hidden flex flex-col justify-center items-center gap-5"
           aria-label={`${title} image carousel`}
         >
-          <Carousel />
+          <Carousel classes="cursor-zoom-in" onClick={() => select!()} />
           <CarouselControls
             store="carousel"
             settings={{

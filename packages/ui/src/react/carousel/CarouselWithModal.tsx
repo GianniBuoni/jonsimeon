@@ -10,7 +10,7 @@ import ModalBg from "#react/modal/ModalBg";
 const CarouselWithModal = ({ assets, projects }: ProjectContext) => {
   return (
     <ProjectProvider assets={assets} projects={projects}>
-      <ModalBg>
+      <ModalBg resetCarousel={true}>
         <ModalCard />
       </ModalBg>
       <CarouselCard />
