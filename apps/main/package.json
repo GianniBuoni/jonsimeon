@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "imports": {
-    "#*": "./src/*.astro"
+    "#*": "./src/*.astro",
+    "#react/*": "./src/components/react/*.tsx",
+    "#lib/*": "./src/lib/*.ts"
   },
   "scripts": {
     "dev": "astro dev --host",

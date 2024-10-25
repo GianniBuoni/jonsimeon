@@ -1,0 +1,18 @@
+---
+import { Footer } from "@jonsimeon/ui/astro";
+
+// lib
+import { noodleFullBody } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
+const assets = env.PUBLIC_ASSETS;
+const src = assets + "/" + noodleFullBody.id + "?key=small";
+---
+
+<Footer>
+  <div
+    class="absolute w-96 h-96 bottom-0 right-10"
+    style={{
+      backgroundImage: `url("${src}")`,
+    }}>
+  </div>
+</Footer>

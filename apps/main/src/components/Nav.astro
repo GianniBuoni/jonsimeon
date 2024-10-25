@@ -1,31 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { readSingleton } from "@directus/sdk";
-import { dbClient, type MainBadges } from "@jonsimeon/lib/db";
 import { Section } from "@jonsimeon/ui/react";
 import { NavCards } from "@jonsimeon/ui/react";
 
-const lRequest = await dbClient.request(
-  readSingleton("main", {
-    fields: [{ toc: [{ icon_badge_id: ["icon", "href", "label"] }] }],
-    deep: {
-      toc: { _filter: { icon_badge_id: { tags: { _icontains: "toc-link" } } } },
-    },
-  }),
-);
-
-const links = lRequest.toc as MainBadges[];
-
-const fRequest = await dbClient.request(
-  readSingleton("main", {
-    fields: [{ toc: [{ icon_badge_id: ["icon", "href", "label"] }] }],
-    deep: {
-      toc: { _filter: { icon_badge_id: { tags: { _icontains: "filter" } } } },
-    },
-  }),
-);
-
-const filters = fRequest.toc as MainBadges[];
+import { links, filters } from "#lib/requests";
 
 interface Props extends HTMLAttributes<"nav"> {
   classes?: string;

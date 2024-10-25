@@ -17,5 +17,5 @@ export type {
   ProjectsBadges,
 } from "#db/schemas/projects";
 export type { Resume, ResumeBadges, ResumeProjects } from "#db/schemas/resume";
-export type { SiteAsset, IconTag, IconBadge } from "#db/schemas/mtm";
+export type { SiteAsset, IconBadge } from "#db/schemas/mtm";
 export type { Main, MainBadges, MainProjects } from "#db/schemas/main";
