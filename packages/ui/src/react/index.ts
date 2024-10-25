@@ -26,6 +26,7 @@ export { default as Button } from "./Button";
 export { default as Heading } from "./Heading";
 export { default as HeroBg } from "./HeroBg";
 export { default as HeroGreeting } from "./HeroGreeting";
+export { default as Icon } from "./Icon";
 export { default as Link } from "./Link";
 export { default as Logo } from "./Logo";
 export { default as Marquee } from "./Marquee";

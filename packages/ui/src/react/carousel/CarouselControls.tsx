@@ -1,9 +1,10 @@
 import React from "react";
-import { Icon } from "@iconify/react";
 
 import { useCarouselStore } from "@jonsimeon/lib/stores";
 import { useModalStore } from "@jonsimeon/lib/stores";
 import type { CarouselSettings } from "@jonsimeon/lib/stores";
+
+import Icon from "#react/Icon";
 
 interface Props {
   store: "carousel" | "modal";
@@ -44,7 +45,8 @@ const NavIcon = ({ direction, ...rest }: NavProps) => {
       {direction == "forward" && <span>{label}</span>}
       <Icon
         icon={`mdi:arrow-${icon}-circle`}
-        className="hover:scale-105 text-3xl"
+        size="1.875rem"
+        className="hover:scale-105"
       />
       {direction == "previous" && <span>{label}</span>}
     </div>

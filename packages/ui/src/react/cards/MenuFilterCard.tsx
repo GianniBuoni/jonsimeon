@@ -1,6 +1,6 @@
 // modules
 import { useContext, useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
+import Icon from "#react/Icon";
 
 //ui
 import Card from "#cards/Card";

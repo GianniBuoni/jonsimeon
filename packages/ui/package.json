@@ -20,7 +20,8 @@
     "build": "astro sync"
   },
   "dependencies": {
-    "@iconify/react": "^5.0.2",
+    "@iconify-json/mdi": "^1.2.1",
+    "@iconify/utils": "^2.1.33",
     "@jonsimeon/lib": "workspace:^",
     "@react-hook/window-size": "^3.1.1",
     "clsx": "^2.1.1",

@@ -1,11 +1,11 @@
 // lib
 import { AccordionContext } from "@jonsimeon/lib/contexts";
-import type { Experience, ExpsIconBadges, IconBadge } from "@jonsimeon/lib/db";
+import type { Experience, ExpsBadges, IconBadge } from "@jonsimeon/lib/db";
 
 // ui
-import { Icon } from "@iconify/react";
 import { AccordionCard } from "@jonsimeon/ui/react";
 import { Badge } from "@jonsimeon/ui/react";
+import { Icon } from "@jonsimeon/ui";
 
 interface Props {
   exps: Experience[];
@@ -28,7 +28,7 @@ const Accordion = ({ exps }: Props) => {
     <AccordionCard item={i} key={`exp-${i.index}`}>
       <div className="flex flex-wrap gap-2">
         {exps[i.index].skills.map((skill) => {
-          const expsBadges = skill as ExpsIconBadges;
+          const expsBadges = skill as ExpsBadges;
           const iconBadge = expsBadges.icon_badge_id as IconBadge;
           return (
             <Badge

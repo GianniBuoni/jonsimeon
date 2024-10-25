@@ -1,11 +1,11 @@
 // modules
 import { useContext } from "react";
-import { Icon } from "@iconify/react";
 
 //ui
 import Heading from "#react/Heading";
 import Badge from "#react/Badge";
 import Card from "#react/cards/Card";
+import Icon from "#react/Icon";
 
 // lib
 import { MenuItemsContext } from "@jonsimeon/lib/contexts";
