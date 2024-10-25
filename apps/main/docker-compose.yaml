@@ -24,6 +24,7 @@ services:
     profiles: ["runtime"]
     networks:
       - astro
+    env_file: .env
 networks:
   astro:
     external: true

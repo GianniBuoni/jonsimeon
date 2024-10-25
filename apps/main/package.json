@@ -13,26 +13,26 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/node": "^8.3.4",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/tailwind": "^5.1.1",
     "@directus/sdk": "^17.0.2",
     "@iconify-json/mdi": "^1.2.1",
-    "@jonsimeon/lib": "workspace:^",
-    "@jonsimeon/ui": "workspace:^",
-    "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0",
     "astro": "^4.15.12",
     "astro-icon": "^1.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.1",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/node": "^8.3.4",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.1",
+    "@jonsimeon/lib": "workspace:^",
+    "@jonsimeon/ui": "workspace:^",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
     "@jonsimeon/tailwind-config": "workspace:^",
-    "@jonsimeon/ts-config": "workspace:^"
+    "@jonsimeon/ts-config": "workspace:^",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
   }
 }

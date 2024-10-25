@@ -26,7 +26,7 @@ const BgImageCard = (
   const bgLinkClasses = clsx([
     "absolute top-0 left-0 h-full w-full",
     "flex flex-col justify-center items-center",
-    "bg-base-300 bg-opacity-90",
+    "bg-base-300 bg-opacity-90 transition-opacity",
     isVisisble, // visibility
   ]);
 

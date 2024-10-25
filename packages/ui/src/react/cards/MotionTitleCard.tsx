@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import BgImageCard from "#cards/BgImageCard";
 import { useContext } from "react";
@@ -11,18 +11,11 @@ const MotionTitleCard = () => {
   const project = projects[page];
 
   return (
-    <MotionImageCard
-      project={project}
-      assets={assets}
-      textVisisble={true}
-      variants={titleVariants}
-      initial="initial"
-      animate="animate"
-    />
+    <motion.div variants={titleVariants} initial="initial" animate="animate">
+      <BgImageCard project={project} assets={assets} textVisisble={true} />
+    </motion.div>
   );
 };
-
-const MotionImageCard = motion.create(BgImageCard);
 
 const titleVariants: Variants = {
   initial: { opacity: 0, y: -50 },

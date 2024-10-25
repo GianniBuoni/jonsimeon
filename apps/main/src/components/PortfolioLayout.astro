@@ -8,6 +8,7 @@ import Nav from "#components/Nav";
 import { noodleFullBody } from "@jonsimeon/lib/db";
 import { env } from "@jonsimeon/lib/env";
 const assets = env.PUBLIC_ASSETS;
+const src = assets + "/" + noodleFullBody.id + "?key=small"
 
 interface Props {
   title?: string;
@@ -39,6 +40,7 @@ const {
         aria-label="page content"
         classes="max-w-screen-lg 2xl:max-w-screen-xl min-h-[92vh]"
         innerClasses="md:pl-0"
+        overrideOverflow={true}
       >
         <div class="flex flex-col gap-7 grow">
           <slot />
@@ -47,10 +49,12 @@ const {
     </div>
   </main>
   <Footer>
-    <img
-      src={`${assets}/${noodleFullBody.id}?key=small`}
-      alt={noodleFullBody.description}
-      class="absolute bottom-0 right-10 h-[22rem]"
-    />
+    <div
+      class="absolute w-96 h-96 bottom-0 right-10"
+      style={{
+        backgroundImage: `url("${src}")`,
+      }}
+    >
+    </div>
   </Footer>
 </MainLayout>

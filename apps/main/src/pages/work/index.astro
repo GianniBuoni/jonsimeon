@@ -1,4 +1,5 @@
 ---
+export const prerender = false
 // lib
 import { dbClient, type Project } from "@jonsimeon/lib/db";
 import { env } from "@jonsimeon/lib/env";
@@ -39,5 +40,5 @@ if (projects.length < 1) {
 ---
 
 <PortfolioLayout>
-  <LoadProjectArray {projects} {assets} server:defer client:visible />
+  <LoadProjectArray {projects} {assets} client:visible />
 </PortfolioLayout>
