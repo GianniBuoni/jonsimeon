@@ -4,8 +4,8 @@ const heading = "Jon Simeon";
 
 const Logo = () => {
   return (
-    <a href="/" className="z-20">
-      <div className="bg-accent py-1 px-3 w-fit rounded-full self-start z-20 hover:scale-110 transition-transform">
+    <div className="bg-accent py-1 px-3 w-fit rounded-full self-start z-20 hover:scale-110 transition-transform">
+      <a href="/" className="z-20">
         <Heading
           tagName="h1"
           size="h3"
@@ -14,8 +14,8 @@ const Logo = () => {
         >
           {heading.toUpperCase()}
         </Heading>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 };
 
