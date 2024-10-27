@@ -6,7 +6,7 @@ import { DragContext } from "./DragCanvas";
 import clsx from "clsx";
 
 interface Props extends HTMLMotionProps<"div"> {
-  classes: string;
+  classes?: string;
 }
 
 const DragDiv = ({ children, classes, ...rest }: Props) => {

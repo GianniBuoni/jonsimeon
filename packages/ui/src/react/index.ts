@@ -3,6 +3,7 @@ export { default as LoadProjectArray } from "#animations/LoadProjectArray";
 export { default as ProjectBody } from "#animations/ProjectBody";
 export { default as DragCanvas } from "#animations/DragCanvas";
 export { default as DragDiv } from "#animations/DragDiv";
+export { default as FeaturedProjects } from "#animations/FeaturedProjects";
 
 // cards
 export { default as BgImageCard } from "#cards/BgImageCard";

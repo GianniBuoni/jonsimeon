@@ -22,7 +22,7 @@ type Schema = {
   icon_badge: Db.IconBadge[]; // Rename in the db later? Should be plural for consistency
   main: Db.Main;
   main_icon_badge: Db.MainBadges[];
-  main_projects: Db.MainProjects;
+  main_projects: Db.MainProjects[];
   posts: Db.Post[];
   projects: Db.Project[];
   projects_files: Db.ProjectsFiles[];
