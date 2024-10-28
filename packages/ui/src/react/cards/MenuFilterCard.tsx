@@ -79,7 +79,7 @@ const MenuFilterCard = () => {
           onClick={() => handleReset()}
         >
           <Icon icon="mdi:close-circle" />
-          Reset
+          Clear Filters
         </Badge>
       </ul>
     </div>

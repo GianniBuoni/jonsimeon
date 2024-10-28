@@ -65,7 +65,7 @@ const staggerAnimation: Variants = {
     transition: {
       duration: 0.5,
       ease: "linear",
-      delayChildren: 4,
+      delayChildren: 3.75,
       staggerChildren: 0.25,
     },
   },

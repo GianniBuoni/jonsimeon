@@ -11,6 +11,7 @@ import {
 } from "@jonsimeon/ui/react";
 import MainFooter from "#components/MainFooter";
 import MainMarquee from "#react/MainMarquee";
+import WorkButton from "#react/WorkButton";
 
 // lib
 import { links } from "#lib/requests";
@@ -21,6 +22,8 @@ import { env } from "@jonsimeon/lib/env";
 const title = "Illustration & Design";
 const description = "My portfolio of my iullustration and design work.";
 
+const workLink = links[0].icon_badge_id as IconBadge;
+const restLinks = links.slice(1);
 const assets = env.PUBLIC_ASSETS;
 ---
 
@@ -32,8 +35,9 @@ const assets = env.PUBLIC_ASSETS;
         <div class="w-full flex items-center justify-between">
           <Logo />
           <ul class="flex items-center gap-5">
+            <WorkButton link={workLink} client:load />
             {
-              links.map((l) => {
+              restLinks.map((l) => {
                 const icon = l.icon_badge_id as IconBadge;
                 return (
                   <a href={icon.href}>
