@@ -11,7 +11,7 @@ const DragCanvas = ({ children }: PropsWithChildren) => {
   return (
     <DragContext.Provider value={dragRef}>
       <motion.div
-        className="fixed w-screen h-screen top-0 left-0 z-30 pointer-events-none"
+        className="absolute w-screen h-screen top-0 left-0 z-20 pointer-events-none"
         ref={dragRef}
       >
         {children}

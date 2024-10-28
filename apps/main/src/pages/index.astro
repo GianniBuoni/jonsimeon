@@ -53,7 +53,7 @@ const assets = env.PUBLIC_ASSETS;
         />
       </div>
     </Section>
+    <FeaturedProjects {assets} projects={featuredProjects} client:idle />
   </main>
   <MainFooter />
-  <FeaturedProjects {assets} projects={featuredProjects} client:idle />
 </MainLayout>
