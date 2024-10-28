@@ -13,7 +13,7 @@ const searchParams =
   Astro.url.searchParams.get("filter") || "illustration,design,programming";
 const filterArray = searchParams.split(",");
 
-const limitParam = Astro.url.searchParams.get("limit") || "5";
+const limitParam = Astro.url.searchParams.get("limit") || "10";
 
 const request = (await dbClient.request(
   readItems("projects", {

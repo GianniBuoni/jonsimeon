@@ -29,7 +29,7 @@ const ModalCard = ({ expandedFeatures = false }: Props) => {
     "mb-16 md:mb-5",
     !expandedFeatures && "z-30",
     "grid grid-rows-7 landscape:grid-rows-1", // rows breakpoint
-    "landscape:grid-cols-9 gap-5 lg:gap-10", //  columns breakpoint
+    "landscape:grid-cols-9 gap-2", //  columns breakpoint
     "overflow-hidden",
   ]);
 

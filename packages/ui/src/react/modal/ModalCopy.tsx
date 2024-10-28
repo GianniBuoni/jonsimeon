@@ -36,7 +36,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
               tagName="h2"
               size="h1"
               addMargin={false}
-              classes="tracking-wide text-accent mb-3"
+              classes="md:text-4xl tracking-wide text-accent mb-3"
             >
               {currentProject.title}
             </Heading>
