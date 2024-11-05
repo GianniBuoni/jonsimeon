@@ -4,7 +4,7 @@ import AboutBody from "#react/AboutBody";
 
 // lib
 import { dbClient, type AboutSection } from "@jonsimeon/lib/db";
-import { heroImage } from "@jonsimeon/lib/db";
+import { meAvatar } from "@jonsimeon/lib/db";
 import { env } from "@jonsimeon/lib/env";
 import { readSingleton } from "@directus/sdk";
 
@@ -21,11 +21,16 @@ const description = "All about me, Jon!";
 ---
 
 <PortfolioLayout {title} {description}>
-  <img
-    src={`${assets}/${heroImage.id}?key=medium`}
-    alt={heroImage.description}
-    width="1000"
-    height="1000"
-  />
-  <AboutBody {sections} />
+  <div class="grid grid-cols-3 gap-10 animate-fade">
+    <div class="col-span-2">
+      <AboutBody {sections} />
+    </div>
+    <img
+      src={`${assets}/${meAvatar.id}?key=medium`}
+      alt={meAvatar.description}
+      width="1000"
+      height="1000"
+      class="rounded-full shadow-hard"
+    />
+  </div>
 </PortfolioLayout>

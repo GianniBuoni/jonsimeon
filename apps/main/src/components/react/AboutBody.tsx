@@ -8,11 +8,11 @@ interface Props {
 
 const AboutBody = ({ sections }: Props) => {
   return sections.map((s) => (
-    <section>
-      <Heading tagName="h2" size="h1" addMargin={false} classes="mb-3">
+    <section className="mb-8">
+      <Heading tagName="h2" size="h1" classes="mb-3 w-[30rem] text-accent">
         {s.heading}
       </Heading>
-      <Markdown>{s.body}</Markdown>
+      <Markdown className="prose">{s.body}</Markdown>
     </section>
   ));
 };

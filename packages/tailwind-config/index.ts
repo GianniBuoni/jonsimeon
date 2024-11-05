@@ -12,9 +12,21 @@ const sharedConfig = {
         display: ["Paytone One", ...defaultTheme.fontFamily.sans],
         sans: ["Chivo Variable", ...defaultTheme.fontFamily.sans],
       },
+
+      animation: {
+        fade: "fadeIn 1s ease-in-out",
+      },
+
+      // that is actual animation
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0%" },
+          "100%": { opacity: "100%" },
+        },
+      },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
   daisyui: {
     themes: [
       {
