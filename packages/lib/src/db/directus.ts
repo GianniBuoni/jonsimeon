@@ -17,6 +17,8 @@ const dbClient = createDirectus<Schema>(directusURL)
 
 // define schema
 type Schema = {
+  about: Db.About;
+  about_section: Db.AboutSection[];
   experience: Db.Experience[];
   experience_icon_badge: Db.ExpsBadges[];
   icon_badge: Db.IconBadge[]; // Rename in the db later? Should be plural for consistency

@@ -1,0 +1,31 @@
+---
+import PortfolioLayout from "#components/PortfolioLayout";
+import AboutBody from "#react/AboutBody";
+
+// lib
+import { dbClient, type AboutSection } from "@jonsimeon/lib/db";
+import { heroImage } from "@jonsimeon/lib/db";
+import { env } from "@jonsimeon/lib/env";
+import { readSingleton } from "@directus/sdk";
+
+const request = await dbClient.request(
+  readSingleton("about", {
+    fields: [{ section: ["heading", "body"] }],
+  }),
+);
+
+const sections = request.section as AboutSection[];
+const assets = env.PUBLIC_ASSETS;
+const title = "About";
+const description = "All about me, Jon!";
+---
+
+<PortfolioLayout {title} {description}>
+  <img
+    src={`${assets}/${heroImage.id}?key=medium`}
+    alt={heroImage.description}
+    width="1000"
+    height="1000"
+  />
+  <AboutBody {sections} />
+</PortfolioLayout>
