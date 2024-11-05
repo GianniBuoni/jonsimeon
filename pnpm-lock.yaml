@@ -191,9 +191,6 @@ importers:
       '@astrojs/react':
         specifier: ^3.6.2
         version: 3.6.2(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1)(react@18.3.1)(vite@5.4.9)
-      '@astrojs/tailwind':
-        specifier: ^5.1.1
-        version: 5.1.2(astro@4.16.6)(tailwindcss@3.4.14)
       '@directus/sdk':
         specifier: ^17.0.2
         version: 17.0.2
@@ -206,18 +203,6 @@ importers:
       '@iconify/react':
         specifier: ^5.0.2
         version: 5.0.2(react@18.3.1)
-      '@jonsimeon/lib':
-        specifier: workspace:^
-        version: link:../../packages/lib
-      '@jonsimeon/ui':
-        specifier: workspace:^
-        version: link:../../packages/ui
-      '@types/react':
-        specifier: ^18.3.11
-        version: 18.3.11
-      '@types/react-dom':
-        specifier: ^18.3.0
-        version: 18.3.1
       astro:
         specifier: ^4.15.12
         version: 4.16.6(@types/node@22.7.7)(typescript@5.6.3)
@@ -230,19 +215,34 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
-      tailwindcss:
-        specifier: ^3.4.13
-        version: 3.4.14
-      typescript:
-        specifier: ^5.6.2
-        version: 5.6.3
     devDependencies:
+      '@astrojs/tailwind':
+        specifier: ^5.1.1
+        version: 5.1.2(astro@4.16.6)(tailwindcss@3.4.14)
+      '@jonsimeon/lib':
+        specifier: workspace:^
+        version: link:../../packages/lib
       '@jonsimeon/tailwind-config':
         specifier: workspace:^
         version: link:../../packages/tailwind-config
       '@jonsimeon/ts-config':
         specifier: workspace:^
         version: link:../../packages/ts-config
+      '@jonsimeon/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      '@types/react':
+        specifier: ^18.3.11
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.1
+      tailwindcss:
+        specifier: ^3.4.13
+        version: 3.4.14
+      typescript:
+        specifier: ^5.6.2
+        version: 5.6.3
 
   packages/lib:
     dependencies:

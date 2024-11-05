@@ -4,8 +4,7 @@ import type { Experience, ExpsBadges, IconBadge } from "@jonsimeon/lib/db";
 
 // ui
 import { AccordionCard } from "@jonsimeon/ui/react";
-import { Badge } from "@jonsimeon/ui/react";
-import { Icon } from "@jonsimeon/ui";
+import { Badge, Icon } from "@jonsimeon/ui/react";
 
 interface Props {
   exps: Experience[];
