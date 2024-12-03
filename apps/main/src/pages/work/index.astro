@@ -1,5 +1,5 @@
 ---
-export const prerender = false
+export const prerender = false;
 // lib
 import { dbClient, type Project } from "@jonsimeon/lib/db";
 import { env } from "@jonsimeon/lib/env";
@@ -25,13 +25,14 @@ const request = (await dbClient.request(
       { hero_image: ["id", "description"] },
     ],
     sort: "title",
-    limit: Number(limitParam),
   }),
 )) as unknown as Project[];
 
-const projects = request.filter((p) => {
-  return filterArray.some((f) => p.tags.includes(f));
-});
+const projects = request
+  .filter((p) => {
+    return filterArray.some((f) => p.tags.includes(f));
+  })
+  .slice(0, Number(limitParam));
 
 const assets = env.PUBLIC_ASSETS;
 if (projects.length < 1) {
