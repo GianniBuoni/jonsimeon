@@ -10,7 +10,6 @@ import RelatedLinks from "#react/RelatedLinks";
 // lib
 import { useModalStore } from "@jonsimeon/lib/stores";
 import { ProjectContext } from "@jonsimeon/lib/contexts";
-import type { IconBadge, ProjectsBadges } from "@jonsimeon/lib/db";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   classes?: string;
@@ -50,7 +49,7 @@ const ModalCopy = ({ classes, ...rest }: Props) => {
             {currentProject.body}
           </Markdown>
         </div>
-        <RelatedLinks />
+        {currentProject.links.length > 0 && <RelatedLinks />}
       </div>
     </div>
   );
