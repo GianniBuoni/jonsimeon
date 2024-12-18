@@ -1,0 +1,26 @@
+---
+import { SiteMessage } from "@jonsimeon/ui/astro";
+import { Link, HeroGreeting } from "@jonsimeon/ui/react";
+
+const title = "Illustration & Design";
+const description = "My portfolio of my iullustration and design work.";
+
+const baseUrl = import.meta.env.BASE_URL;
+const resume = "https://resume.jonsimeon.com";
+---
+
+<SiteMessage {title} {description}>
+  <div class="max-w-screen-md landscape:pl-10">
+    <HeroGreeting
+      first={`Fun things are on their way!`}
+      cursor={false}
+      client:load
+    >
+      <p>
+        I'm working on rebuilding &nbsp;
+        <Link href={baseUrl}>jonsimeon.com</Link>.
+      </p>
+      <p>In the meanwhile, check out my <Link href={resume}>resume</Link>!</p>
+    </HeroGreeting>
+  </div>
+</SiteMessage>

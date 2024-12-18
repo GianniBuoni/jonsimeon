@@ -1,0 +1,31 @@
+services:
+  placeholder-dev:
+    container_name: placeholder-dev
+    build:
+      context: ../../
+      target: base
+      args:
+        APP_NAME: placeholder
+    profiles: ["placeholder", "dev"]
+    networks:
+      - astro
+    command: pnpm turbo dev --filter=@jonsimeon/placeholder
+    volumes:
+      - "../../:/app"
+    ports:
+      - 4321:4321
+  placeholder:
+    container_name: jonsimeon-placeholder
+    build:
+      context: ../../
+      target: runtime
+      args:
+        APP_NAME: placeholder
+    profiles: ["runtime"]
+    networks:
+      - astro
+    env_file: .env
+networks:
+  astro:
+    external: true
+    name: astro
